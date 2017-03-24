@@ -19,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="55dp"
+        android:layout_marginTop="35dp"
         android:text="她说"
         android:textSize="35dp"
         />
@@ -113,64 +114,24 @@
             android:src="@mipmap/not_see"
             />
     </LinearLayout>
-    <!--忘记密码，快速登录-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:id="@+id/reset_password"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:textColor="#979589"
-            android:textSize="14sp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
-            android:text="忘记密码？"
-            android:gravity="center"
-            />
-        <TextView
-            android:id="@+id/speed_login"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:textColor="#979589"
-            android:textSize="14sp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
-            android:gravity="center"
-            android:text="快捷登录"
-            />
-    </RelativeLayout>
     <!--登录-->
     <Button
         android:id="@+id/login_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="登录"
         android:textSize="20dp"
         android:textColor="#ffffff"
         android:layout_gravity="center"
         android:background="@mipmap/login_btn_one"
         />
-    <!--注册-->
-    <Button
-        android:id="@+id/register_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="注册"
-        android:textSize="20dp"
-        android:textColor="#6d6d6d"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@mipmap/login_graybutton_normal"
-        />
+
     <!--第三方登录-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="50dp">
 
         <View
             android:layout_width="wrap_content"
@@ -221,6 +182,47 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:src="@mipmap/login_weixin" />
-
     </LinearLayout>
+
+    <!--忘记密码，快速登录-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        >
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textColor="#979589"
+            android:textSize="14sp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="60dp"
+            android:text="注册"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/speed_login"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textColor="#979589"
+            android:textSize="14sp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="140dp"
+            android:text="快捷登录"
+            android:gravity="center"
+            />
+        <TextView
+            android:id="@+id/reset_password"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textColor="#979589"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"
+            android:gravity="center"
+            android:text="忘记密码"
+            />
+    </RelativeLayout>
 </LinearLayout>
