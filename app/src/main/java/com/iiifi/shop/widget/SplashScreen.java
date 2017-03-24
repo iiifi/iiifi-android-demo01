@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-import com.iiifi.shop.R;
+import com.iiifi.shop.activity.R;
 
 
 /**
