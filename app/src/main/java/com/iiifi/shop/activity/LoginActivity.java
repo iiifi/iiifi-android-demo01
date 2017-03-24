@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.iiifi.shop.view.LoginView;
+
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -27,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        new LoginView(this);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
