@@ -1,8 +1,9 @@
-package com.iiifi.shop;
+package com.iiifi.shop.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.iiifi.shop.R;
 import com.iiifi.shop.handler.HandlerUtil;
 import com.iiifi.shop.widget.SplashScreen;
 
