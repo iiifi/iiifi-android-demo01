@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:inputType="phone"
-                android:maxLength="11"
+                android:maxLength="4"
                 android:textSize="16sp"
                 android:background="@null"
                 android:textCursorDrawable="@null"
@@ -132,7 +132,7 @@
     </LinearLayout>
     <!--登录-->
     <Button
-        android:id="@+id/register_btn"
+        android:id="@+id/speed_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

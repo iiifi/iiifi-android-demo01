@@ -211,7 +211,6 @@ public class LoginView{
             public void onClick(View v) {
                 Intent intent=new Intent(loginActivity, SpeedActivity.class);
                 loginActivity.startActivity(intent);
-                loginActivity.finish();
             }
         });
     }
