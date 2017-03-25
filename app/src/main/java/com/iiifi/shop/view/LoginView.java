@@ -27,6 +27,14 @@ public class LoginView{
     private static boolean IS_SEE=false;
 
     private LoginActivity loginActivity;
+
+
+    //手机号码正则表达式
+    private static final String phoneRegex = "^1(3|4|5|7|8)\\d{9}";
+
+    //密码的正则表达式
+    private static final String passwordRegex = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$";
+
     /**
      * 登录名
      */
@@ -68,11 +76,15 @@ public class LoginView{
     public static void build(LoginActivity loginActivity){
         new LoginView(loginActivity);
     }
-    //创建页面
+
     public LoginView(LoginActivity loginActivity){
         this.loginActivity=loginActivity;
+        //初始化控件
         initView(loginActivity);
+        //初始化事件
         initEvent();
+        //初始化点击效果
+        initClickEffect();
     }
 
     /**
@@ -119,11 +131,10 @@ public class LoginView{
             public void afterTextChanged(Editable s) {
                 if (!TextUtils.isEmpty(etLoginName.getText())) {
                     loginNameDel.setVisibility(View.VISIBLE);
-
                 } else {
                     loginNameDel.setVisibility(View.GONE);
                 }
-
+                checkLogin();
             }
         });
         //登录框数据清除
@@ -149,11 +160,10 @@ public class LoginView{
             public void afterTextChanged(Editable s) {
                 if (!TextUtils.isEmpty(etPassword.getText())) {
                     passwordDel.setVisibility(View.VISIBLE);
-
                 } else {
                     passwordDel.setVisibility(View.GONE);
                 }
-
+                checkLogin();
             }
         });
         //密码框数据清除
@@ -178,6 +188,12 @@ public class LoginView{
                 }
             }
         });
+        loginBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(),"点击登录按钮",Toast.LENGTH_SHORT).show();
+            }
+        });
         //跳转到注册页面
         register.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -190,4 +206,28 @@ public class LoginView{
         });
     }
 
+    //初始化点击事件效果
+    public void initClickEffect(){
+        loginBtn.setClickable(false);
+    }
+    //校验注册按钮是否可点击
+    public void checkLogin(){
+        if(checkLoginName()&&checkPassword()){
+            loginBtn.setClickable(true);
+            loginBtn.setBackgroundResource(R.mipmap.login_bluebutton_selected);
+        }else{
+            loginBtn.setClickable(false);
+            loginBtn.setBackgroundResource(R.mipmap.login_btn_one);
+        }
+    }
+    //校验登录名是否合法
+    public  boolean checkLoginName(){
+        String loginName=etLoginName.getText().toString().trim();
+        return (!TextUtils.isEmpty(loginName))&&loginName.matches(phoneRegex);
+    }
+    //校验密码是否合法
+    public boolean checkPassword(){
+        String password=etPassword.getText().toString().trim();
+        return (!TextUtils.isEmpty(password))&&password.matches(passwordRegex);
+    }
 }

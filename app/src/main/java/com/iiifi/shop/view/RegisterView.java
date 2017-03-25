@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
@@ -29,7 +28,6 @@ public class RegisterView {
     private static boolean IS_SEE=false;
 
     private RegisterActivity registerActivity;
-
 
     //手机号码正则表达式
     private static final String phoneRegex = "^1(3|4|5|7|8)\\d{9}";
@@ -156,11 +154,11 @@ public class RegisterView {
                         sendCode.setTextColor(registerActivity.getResources().getColor(R.color.text_color_getverfy));
                         sendCode.setBackgroundResource(R.mipmap.login_testgetcode_box);
                     }
-                    //判断注册按钮是否可点击
-                    checkRegister();
                 } else {
                     loginNameDel.setVisibility(View.GONE);
                 }
+                //判断注册按钮是否可点击
+                checkRegister();
             }
         });
         //登录框数据清除
@@ -204,11 +202,11 @@ public class RegisterView {
             public void afterTextChanged(Editable s) {
                 if (!TextUtils.isEmpty(etSmsCode.getText())) {
                     smsCodeDel.setVisibility(View.VISIBLE);
-                    //判断注册按钮是否可点击
-                    checkRegister();
                 } else {
                     smsCodeDel.setVisibility(View.GONE);
                 }
+                //判断注册按钮是否可点击
+                checkRegister();
             }
         });
         //验证码框数据清除
@@ -234,12 +232,11 @@ public class RegisterView {
             public void afterTextChanged(Editable s) {
                 if (!TextUtils.isEmpty(etPassword.getText())) {
                     passwordDel.setVisibility(View.VISIBLE);
-                    //判断注册按钮是否可点击
-                    checkRegister();
                 } else {
                     passwordDel.setVisibility(View.GONE);
                 }
-
+                //判断注册按钮是否可点击
+                checkRegister();
             }
         });
         //密码框数据清除
