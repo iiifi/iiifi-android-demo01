@@ -1,6 +1,7 @@
 package com.iiifi.shop.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -15,13 +16,17 @@ import android.widget.Toast;
 
 import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
+import com.iiifi.shop.activity.RegisterActivity;
 
 /**
  * Created by dmm on 2017/3/24.
  */
 
 public class LoginView{
+
     private static boolean IS_SEE=false;
+
+    private LoginActivity loginActivity;
     /**
      * 登录名
      */
@@ -49,7 +54,7 @@ public class LoginView{
     /**
      * 注册
      */
-    private Button registerBtn;
+    private TextView register;
     /**
      * 第三方登录
      */
@@ -60,6 +65,7 @@ public class LoginView{
     private ImageView ivWeixin;
 
     public LoginView(LoginActivity loginActivity){
+        this.loginActivity=loginActivity;
         initView(loginActivity);
         initEvent();
     }
@@ -77,7 +83,7 @@ public class LoginView{
         resetPassword = (TextView) loginActivity.findViewById(R.id.reset_password);
         speedLogin = (TextView) loginActivity.findViewById(R.id.speed_login);
         loginBtn = (Button) loginActivity.findViewById(R.id.login_btn);
-        resetPassword = (TextView) loginActivity.findViewById(R.id.reset_password);
+        register = (TextView) loginActivity.findViewById(R.id.register);
         ivQQ = (ImageView) loginActivity.findViewById(R.id.iv_qq);
         ivSina = (ImageView) loginActivity.findViewById(R.id.iv_sina);
         ivWeixin = (ImageView) loginActivity.findViewById(R.id.iv_weixin);
@@ -160,6 +166,14 @@ public class LoginView{
                     etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     IS_SEE=true;
                 }
+            }
+        });
+        register.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(loginActivity, RegisterActivity.class);
+                loginActivity.startActivity(intent);
+
             }
         });
     }
