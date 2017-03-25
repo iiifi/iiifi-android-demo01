@@ -178,6 +178,7 @@ public class LoginView{
                 }
             }
         });
+        //跳转到注册页面
         register.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

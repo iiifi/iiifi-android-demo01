@@ -1,6 +1,9 @@
 package com.iiifi.shop.view;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
+import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -11,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
@@ -25,6 +29,19 @@ public class RegisterView {
     private static boolean IS_SEE=false;
 
     private RegisterActivity registerActivity;
+
+
+    //手机号码正则表达式
+    private static final String phoneRegex = "^1(3|4|5|7|8)\\d{9}";
+
+    //密码的正则表达式
+    private static final String passwordRegex = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$";
+
+    //验证码正则表达式
+    private static final String smsCodeRegex = "^\\d{4}";
+
+    //发送验证码定时器
+    private VerifyCodeTimer timer;
     /**
      * 登录名
      */
@@ -75,8 +92,12 @@ public class RegisterView {
 
     public  RegisterView(RegisterActivity registerActivity){
         this.registerActivity=registerActivity;
+        //初始化控件
         initView(registerActivity);
+        //初始化事件
         initEvent();
+        //初始化是否可点击
+        initClickEffect();
     }
 
 
@@ -96,6 +117,8 @@ public class RegisterView {
         etPassword = (EditText) registerActivity.findViewById(R.id.et_paswword);
         passwordDel = (ImageView) registerActivity.findViewById(R.id.password_del);
         see_password = (ImageView) registerActivity.findViewById(R.id.see_password);
+        //注册按钮
+        registerBtn = (TextView) registerActivity.findViewById(R.id.register_btn);
         //第三方登录
         ivQQ = (ImageView) registerActivity.findViewById(R.id.iv_qq);
         ivSina = (ImageView) registerActivity.findViewById(R.id.iv_sina);
@@ -107,7 +130,7 @@ public class RegisterView {
     }
 
     /**
-     * 绑定控件事件
+     * 初始化事件
      */
     public void initEvent(){
         //登录名输入框设置监听
@@ -116,7 +139,6 @@ public class RegisterView {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
@@ -124,13 +146,21 @@ public class RegisterView {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (!TextUtils.isEmpty(etLoginName.getText())) {
+                String phoneNumber=etLoginName.getText().toString().trim();
+                if (!TextUtils.isEmpty(phoneNumber)) {
                     loginNameDel.setVisibility(View.VISIBLE);
-
+                    //根据手机号状态判发送验证码是否可点击
+                    if(checkLoginName()&&isCreate()){
+                        sendCode.setClickable(true);
+                        etLoginName.setVisibility(View.VISIBLE);
+                        sendCode.setTextColor(registerActivity.getResources().getColor(R.color.text_color_getverfy));
+                        sendCode.setBackgroundResource(R.mipmap.login_testgetcode_box);
+                    }
+                    //判断注册按钮是否可点击
+                    checkRegister();
                 } else {
                     loginNameDel.setVisibility(View.GONE);
                 }
-
             }
         });
         //登录框数据清除
@@ -140,6 +170,25 @@ public class RegisterView {
                 etLoginName.setText("");
             }
         });
+
+        //发送验证码事件
+        sendCode.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //判断登录名是否合法
+                if(!checkLoginName()){
+                    sendCode.setClickable(false);
+                }else{
+                    etLoginName.clearFocus();
+                    etSmsCode.requestFocus();
+                    //发送验证码处理事件
+                    sendCode.setClickable(false);
+                    timer = new VerifyCodeTimer(6000, 1000);
+                    timer.start();
+                }
+            }
+        });
+
         //验证码输入框设置监听
         etSmsCode.addTextChangedListener(new TextWatcher() {
             @Override
@@ -151,16 +200,15 @@ public class RegisterView {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 if (!TextUtils.isEmpty(etSmsCode.getText())) {
                     smsCodeDel.setVisibility(View.VISIBLE);
-
+                    //判断注册按钮是否可点击
+                    checkRegister();
                 } else {
                     smsCodeDel.setVisibility(View.GONE);
                 }
-
             }
         });
         //验证码框数据清除
@@ -186,7 +234,8 @@ public class RegisterView {
             public void afterTextChanged(Editable s) {
                 if (!TextUtils.isEmpty(etPassword.getText())) {
                     passwordDel.setVisibility(View.VISIBLE);
-
+                    //判断注册按钮是否可点击
+                    checkRegister();
                 } else {
                     passwordDel.setVisibility(View.GONE);
                 }
@@ -216,6 +265,13 @@ public class RegisterView {
             }
         });
 
+        registerBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(),"点击注册按钮",Toast.LENGTH_SHORT).show();
+            }
+        });
+
         //返回登录界面
         loginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -226,4 +282,81 @@ public class RegisterView {
             }
         });
     }
+
+    //初始化点击事件效果
+    public void initClickEffect(){
+        sendCode.setClickable(false);
+        registerBtn.setClickable(false);
+    }
+    //校验注册按钮是否可点击
+    public void checkRegister(){
+        if(checkLoginName()&&checkPassword()&&checkSmsCode()){
+            registerBtn.setClickable(true);
+            registerBtn.setBackgroundResource(R.mipmap.login_bluebutton_selected);
+        }else{
+            registerBtn.setClickable(false);
+            registerBtn.setBackgroundResource(R.mipmap.login_btn_one);
+        }
+    }
+    //校验登录名是否合法
+    public  boolean checkLoginName(){
+        String loginName=etLoginName.getText().toString().trim();
+        return (!TextUtils.isEmpty(loginName))&&loginName.matches(phoneRegex);
+    }
+    //校验密码是否合法
+    public boolean checkPassword(){
+        String password=etPassword.getText().toString().trim();
+        return (!TextUtils.isEmpty(password))&&password.matches(passwordRegex);
+    }
+    //校验验证码是否合法
+    public boolean checkSmsCode(){
+        String smsCode=etSmsCode.getText().toString().trim();
+        return (!TextUtils.isEmpty(smsCode))&&smsCode.matches(smsCodeRegex);
+    }
+    //判断定时器是否被创建
+    private boolean isCreate() {
+        if (timer == null) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 获取验证码的定时器
+     */
+    class VerifyCodeTimer extends CountDownTimer {
+        @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+        public VerifyCodeTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+            //定时器被创建的时候获取验证码的按钮不能点击
+            sendCode.setClickable(false);
+//            et_phone.setEnabled(false);
+            sendCode.setTextColor(registerActivity.getResources().getColor(R.color.text_color_gray));
+            sendCode.setBackgroundResource(R.mipmap.login_register_code);
+        }
+
+
+        //计时开始时的方法
+        @Override
+        public void onTick(long millisUntilFinished) {
+            sendCode.setText(millisUntilFinished / 1000 + "s");
+            sendCode.setClickable(false);
+        }
+
+        //计时结束后的方法
+        @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+        @Override
+        public void onFinish() {
+            //将获取验证码变成可点击的
+            if(checkLoginName()){
+                sendCode.setClickable(true);
+                sendCode.setText("重新获取");
+                sendCode.setTextColor(registerActivity.getResources().getColor(R.color.text_color_getverfy));
+                sendCode.setBackgroundResource(R.mipmap.login_testgetcode_box);
+            }else {
+                sendCode.setText("获取验证码");
+            }
+        }
+    }
+
 }
