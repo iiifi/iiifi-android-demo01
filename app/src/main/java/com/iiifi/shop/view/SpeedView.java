@@ -128,6 +128,10 @@ public class SpeedView {
                         etLoginName.setVisibility(View.VISIBLE);
                         sendCode.setTextColor(speedActivity.getResources().getColor(R.color.text_color_getverfy));
                         sendCode.setBackgroundResource(R.mipmap.login_testgetcode_box);
+                    }else{
+                        sendCode.setClickable(false);
+                        sendCode.setTextColor(speedActivity.getResources().getColor(R.color.text_color_gray));
+                        sendCode.setBackgroundResource(R.mipmap.login_register_code);
                     }
                 } else {
                     loginNameDel.setVisibility(View.GONE);
@@ -269,6 +273,7 @@ public class SpeedView {
             }else {
                 sendCode.setText("获取验证码");
             }
+            timer=null;
         }
     }
 

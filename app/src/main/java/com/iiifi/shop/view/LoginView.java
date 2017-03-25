@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
+import com.iiifi.shop.activity.ResetPwdActivity;
 import com.iiifi.shop.activity.SpeedActivity;
 
 /**
@@ -210,6 +211,14 @@ public class LoginView{
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(loginActivity, SpeedActivity.class);
+                loginActivity.startActivity(intent);
+            }
+        });
+        //跳转到重置密码界面
+        resetPassword.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(loginActivity, ResetPwdActivity.class);
                 loginActivity.startActivity(intent);
             }
         });

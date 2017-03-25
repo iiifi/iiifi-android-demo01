@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".SpeedActivity"></activity>
+        <activity android:name=".SpeedActivity" />
+        <activity android:name=".ResetPwdActivity"></activity>
     </application>
 
 </manifest>

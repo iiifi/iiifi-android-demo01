@@ -15,20 +15,23 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
+import com.iiifi.shop.activity.ResetPwdActivity;
 import com.iiifi.shop.activity.SpeedActivity;
 
 /**
  * Created by dmm on 2017/3/25.
  */
 
-public class RegisterView {
+public class ResetPwdView {
+
 
     private static boolean IS_SEE=false;
 
-    private RegisterActivity registerActivity;
+    private ResetPwdActivity resetPwdActivity;
 
     //手机号码正则表达式
     private static final String phoneRegex = "^1(3|4|5|7|8)\\d{9}";
@@ -63,7 +66,7 @@ public class RegisterView {
     /**
      * 注册
      */
-    private Button registerBtn;
+    private Button resetPwdBtn;
 
     /**
      * 第三方登录
@@ -85,14 +88,14 @@ public class RegisterView {
     private TextView speedLogin;
 
     //编译控件
-    public static void build(RegisterActivity registerActivity){
-        new RegisterView(registerActivity);
+    public static void build(ResetPwdActivity resetPwdActivity){
+        new ResetPwdView(resetPwdActivity);
     }
 
-    public  RegisterView(RegisterActivity registerActivity){
-        this.registerActivity=registerActivity;
+    public  ResetPwdView(ResetPwdActivity resetPwdActivity){
+        this.resetPwdActivity=resetPwdActivity;
         //初始化控件
-        initView(registerActivity);
+        initView(resetPwdActivity);
         //初始化事件
         initEvent();
         //初始化是否可点击
@@ -102,30 +105,30 @@ public class RegisterView {
 
     /**
      * 初始化控件
-     * @param registerActivity
+     * @param resetPwdActivity
      */
-    public  void initView(RegisterActivity registerActivity){
+    public  void initView(ResetPwdActivity resetPwdActivity){
         //登录名
-        etLoginName= (EditText) registerActivity.findViewById(R.id.et_login_name);
-        loginNameDel= (ImageView) registerActivity.findViewById(R.id.login_name_del);
+        etLoginName= (EditText) resetPwdActivity.findViewById(R.id.et_login_name);
+        loginNameDel= (ImageView) resetPwdActivity.findViewById(R.id.login_name_del);
         //验证码
-        etSmsCode = (EditText) registerActivity.findViewById(R.id.et_sms_code);
-        smsCodeDel = (ImageView) registerActivity.findViewById(R.id.sms_code_del);
-        sendCode = (TextView) registerActivity.findViewById(R.id.send_code);
+        etSmsCode = (EditText) resetPwdActivity.findViewById(R.id.et_sms_code);
+        smsCodeDel = (ImageView) resetPwdActivity.findViewById(R.id.sms_code_del);
+        sendCode = (TextView) resetPwdActivity.findViewById(R.id.send_code);
         //密码
-        etPassword = (EditText) registerActivity.findViewById(R.id.et_paswword);
-        passwordDel = (ImageView) registerActivity.findViewById(R.id.password_del);
-        see_password = (ImageView) registerActivity.findViewById(R.id.see_password);
+        etPassword = (EditText) resetPwdActivity.findViewById(R.id.et_paswword);
+        passwordDel = (ImageView) resetPwdActivity.findViewById(R.id.password_del);
+        see_password = (ImageView) resetPwdActivity.findViewById(R.id.see_password);
         //注册按钮
-        registerBtn = (Button) registerActivity.findViewById(R.id.register_btn);
+        resetPwdBtn = (Button) resetPwdActivity.findViewById(R.id.reset_pwd);
         //第三方登录
-        ivQQ = (ImageView) registerActivity.findViewById(R.id.iv_qq);
-        ivSina = (ImageView) registerActivity.findViewById(R.id.iv_sina);
-        ivWeixin = (ImageView) registerActivity.findViewById(R.id.iv_weixin);
+        ivQQ = (ImageView) resetPwdActivity.findViewById(R.id.iv_qq);
+        ivSina = (ImageView) resetPwdActivity.findViewById(R.id.iv_sina);
+        ivWeixin = (ImageView) resetPwdActivity.findViewById(R.id.iv_weixin);
         //快速登录
-        speedLogin = (TextView) registerActivity.findViewById(R.id.speed_login);
+        speedLogin = (TextView) resetPwdActivity.findViewById(R.id.speed_login);
         //登录
-        loginBtn = (TextView) registerActivity.findViewById(R.id.login_btn);
+        loginBtn = (TextView) resetPwdActivity.findViewById(R.id.login_btn);
     }
 
     /**
@@ -152,11 +155,11 @@ public class RegisterView {
                     if(checkLoginName()&&isCreate()){
                         sendCode.setClickable(true);
                         etLoginName.setVisibility(View.VISIBLE);
-                        sendCode.setTextColor(registerActivity.getResources().getColor(R.color.text_color_getverfy));
+                        sendCode.setTextColor(resetPwdActivity.getResources().getColor(R.color.text_color_getverfy));
                         sendCode.setBackgroundResource(R.mipmap.login_testgetcode_box);
                     }else{
                         sendCode.setClickable(false);
-                        sendCode.setTextColor(registerActivity.getResources().getColor(R.color.text_color_gray));
+                        sendCode.setTextColor(resetPwdActivity.getResources().getColor(R.color.text_color_gray));
                         sendCode.setBackgroundResource(R.mipmap.login_register_code);
                     }
                 } else {
@@ -267,10 +270,10 @@ public class RegisterView {
             }
         });
 
-        registerBtn.setOnClickListener(new View.OnClickListener(){
+        resetPwdBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(),"点击注册按钮",Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(),"点击重置密码按钮",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -278,9 +281,9 @@ public class RegisterView {
         loginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(registerActivity,LoginActivity.class);
-                registerActivity.startActivity(intent);
-                registerActivity.finish();
+                Intent intent=new Intent(resetPwdActivity,LoginActivity.class);
+                resetPwdActivity.startActivity(intent);
+                resetPwdActivity.finish();
             }
         });
 
@@ -288,8 +291,8 @@ public class RegisterView {
         speedLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(registerActivity,SpeedActivity.class);
-                registerActivity.startActivity(intent);
+                Intent intent=new Intent(resetPwdActivity,SpeedActivity.class);
+                resetPwdActivity.startActivity(intent);
             }
         });
     }
@@ -297,16 +300,16 @@ public class RegisterView {
     //初始化点击事件效果
     public void initClickEffect(){
         sendCode.setClickable(false);
-        registerBtn.setClickable(false);
+        resetPwdBtn.setClickable(false);
     }
     //校验注册按钮是否可点击
     public void checkRegister(){
         if(checkLoginName()&&checkPassword()&&checkSmsCode()){
-            registerBtn.setClickable(true);
-            registerBtn.setBackgroundResource(R.mipmap.login_bluebutton_selected);
+            resetPwdBtn.setClickable(true);
+            resetPwdBtn.setBackgroundResource(R.mipmap.login_bluebutton_selected);
         }else{
-            registerBtn.setClickable(false);
-            registerBtn.setBackgroundResource(R.mipmap.login_btn_one);
+            resetPwdBtn.setClickable(false);
+            resetPwdBtn.setBackgroundResource(R.mipmap.login_btn_one);
         }
     }
     //校验登录名是否合法
@@ -342,7 +345,7 @@ public class RegisterView {
             //定时器被创建的时候获取验证码的按钮不能点击
             sendCode.setClickable(false);
 //            et_phone.setEnabled(false);
-            sendCode.setTextColor(registerActivity.getResources().getColor(R.color.text_color_gray));
+            sendCode.setTextColor(resetPwdBtn.getResources().getColor(R.color.text_color_gray));
             sendCode.setBackgroundResource(R.mipmap.login_register_code);
         }
 
@@ -362,7 +365,7 @@ public class RegisterView {
             if(checkLoginName()){
                 sendCode.setClickable(true);
                 sendCode.setText("重新获取");
-                sendCode.setTextColor(registerActivity.getResources().getColor(R.color.text_color_getverfy));
+                sendCode.setTextColor(resetPwdActivity.getResources().getColor(R.color.text_color_getverfy));
                 sendCode.setBackgroundResource(R.mipmap.login_testgetcode_box);
             }else {
                 sendCode.setText("获取验证码");
