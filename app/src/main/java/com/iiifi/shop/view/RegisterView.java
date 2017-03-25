@@ -278,8 +278,6 @@ public class RegisterView {
         loginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(registerActivity,LoginActivity.class);
-                registerActivity.startActivity(intent);
                 registerActivity.finish();
             }
         });

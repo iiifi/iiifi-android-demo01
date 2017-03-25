@@ -281,8 +281,6 @@ public class ResetPwdView {
         loginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(resetPwdActivity,LoginActivity.class);
-                resetPwdActivity.startActivity(intent);
                 resetPwdActivity.finish();
             }
         });
