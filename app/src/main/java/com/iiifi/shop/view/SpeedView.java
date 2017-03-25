@@ -217,7 +217,7 @@ public class SpeedView {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(speedActivity, CommonWebActivity.class);
-                intent.putExtra("loadUrl","http://wap.edencity.com/wx/html/user/edenRegisterService.html");
+                intent.putExtra("loadUrl","http://wap.edencity.com/wx/html/user/tashuoService.html");
                 speedActivity.startActivity(intent);
             }
         });

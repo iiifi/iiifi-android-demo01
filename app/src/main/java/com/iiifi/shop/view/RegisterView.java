@@ -285,7 +285,7 @@ public class RegisterView {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(registerActivity, CommonWebActivity.class);
-                intent.putExtra("loadUrl","http://wap.edencity.com/wx/html/user/edenRegisterService.html");
+                intent.putExtra("loadUrl","http://wap.edencity.com/wx/html/user/tashuoService.html");
                 registerActivity.startActivity(intent);
             }
         });
