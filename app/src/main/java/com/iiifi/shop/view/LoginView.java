@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
+import com.iiifi.shop.activity.SpeedActivity;
 
 /**
  * Created by dmm on 2017/3/24.
@@ -202,6 +203,15 @@ public class LoginView{
                 loginActivity.startActivity(intent);
                 loginActivity.finish();
 
+            }
+        });
+        //跳转到快速登录页面
+        speedLogin.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(loginActivity, SpeedActivity.class);
+                loginActivity.startActivity(intent);
+                loginActivity.finish();
             }
         });
     }
