@@ -197,7 +197,7 @@
             android:textColor="#979589"
             android:textSize="14sp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="60dp"
+            android:layout_marginLeft="70dp"
             android:text="注册"
             android:gravity="center"
             />
@@ -208,7 +208,7 @@
             android:textColor="#979589"
             android:textSize="14sp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="140dp"
+            android:layout_marginLeft="155dp"
             android:text="快捷登录"
             android:gravity="center"
             />
@@ -219,7 +219,7 @@
             android:textColor="#979589"
             android:textSize="14sp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="60dp"
+            android:layout_marginRight="50dp"
             android:gravity="center"
             android:text="忘记密码"
             />

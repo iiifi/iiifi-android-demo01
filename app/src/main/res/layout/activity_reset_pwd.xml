@@ -262,7 +262,7 @@
             android:textColor="#979589"
             android:textSize="14sp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="60dp"
+            android:layout_marginLeft="70dp"
             android:text="登录"
             android:gravity="center"
             />
