@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.iiifi.shop.activity.CommonWebActivity;
 import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
@@ -55,7 +56,10 @@ public class SpeedView {
      * 注册
      */
     private Button speedLoginBtn;
-
+    /**
+     * 用户协议
+     */
+    private TextView userProtocol;
     /**
      * 第三方登录
      */
@@ -96,6 +100,8 @@ public class SpeedView {
         sendCode = (TextView) speedActivity.findViewById(R.id.send_code);
         //注册按钮
         speedLoginBtn = (Button) speedActivity.findViewById(R.id.speed_login);
+        //用户协议
+        userProtocol = (TextView) speedActivity.findViewById(R.id.user_protocol);
         //第三方登录
         ivQQ = (ImageView) speedActivity.findViewById(R.id.iv_qq);
         ivSina = (ImageView) speedActivity.findViewById(R.id.iv_sina);
@@ -196,11 +202,23 @@ public class SpeedView {
             }
         });
 
-
+        /**
+         * 快速登录
+         */
         speedLoginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),"点击注册按钮",Toast.LENGTH_SHORT).show();
+            }
+        });
+        //用户协议
+        //用户协议
+        userProtocol.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(speedActivity, CommonWebActivity.class);
+                intent.putExtra("loadUrl","http://wap.edencity.com/wx/html/user/edenRegisterService.html");
+                speedActivity.startActivity(intent);
             }
         });
     }

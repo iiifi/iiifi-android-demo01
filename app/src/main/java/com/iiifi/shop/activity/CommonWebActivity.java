@@ -1,35 +1,31 @@
 package com.iiifi.shop.activity;
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 
-import com.iiifi.shop.view.LoginView;
+import com.iiifi.shop.view.CommonWebView;
+import com.iiifi.shop.view.RegisterView;
 
-public class LoginActivity extends AppCompatActivity {
+public class CommonWebActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_common_web);
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         //透明导航栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-
+        //设置toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("登录");
+        toolbar.setTitle("用户协议");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        LoginView.build(this);
+        //编译view
+        CommonWebView.build(this);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

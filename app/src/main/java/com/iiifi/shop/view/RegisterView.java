@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.iiifi.shop.activity.CommonWebActivity;
 import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
@@ -64,7 +66,10 @@ public class RegisterView {
      * 注册
      */
     private Button registerBtn;
-
+    /**
+     * 用户协议
+     */
+    private TextView userProtocol;
     /**
      * 第三方登录
      */
@@ -118,6 +123,8 @@ public class RegisterView {
         see_password = (ImageView) registerActivity.findViewById(R.id.see_password);
         //注册按钮
         registerBtn = (Button) registerActivity.findViewById(R.id.register_btn);
+        //用户协议
+        userProtocol = (TextView) registerActivity.findViewById(R.id.user_protocol);
         //第三方登录
         ivQQ = (ImageView) registerActivity.findViewById(R.id.iv_qq);
         ivSina = (ImageView) registerActivity.findViewById(R.id.iv_sina);
@@ -266,14 +273,22 @@ public class RegisterView {
                 }
             }
         });
-
+        //注册按钮
         registerBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),"点击注册按钮",Toast.LENGTH_SHORT).show();
             }
         });
-
+        //用户协议
+        userProtocol.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(registerActivity, CommonWebActivity.class);
+                intent.putExtra("loadUrl","http://wap.edencity.com/wx/html/user/edenRegisterService.html");
+                registerActivity.startActivity(intent);
+            }
+        });
         //返回登录界面
         loginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
