@@ -1,6 +1,5 @@
 package com.iiifi.shop.view;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -12,36 +11,44 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
 
 /**
- * Created by dmm on 2017/3/24.
+ * Created by dmm on 2017/3/25.
  */
 
-public class LoginView{
+public class RegisterView {
 
     private static boolean IS_SEE=false;
 
-    private LoginActivity loginActivity;
+    private RegisterActivity registerActivity;
     /**
      * 登录名
      */
-    private  EditText etLoginName;
-    private  ImageView loginNameDel;
+    private EditText etLoginName;
+    private ImageView loginNameDel;
+
+    /**
+     * 验证码
+     */
+    private EditText etSmsCode;
+    private ImageView smsCodeDel;
+    private TextView sendCode;
     /**
      * 密码
      */
     private  EditText etPassword;
     private  ImageView passwordDel;
     private  ImageView see_password;
+
     /**
-     * 登录
+     * 注册
      */
-    private Button loginBtn;
+    private TextView registerBtn;
+
     /**
      * 第三方登录
      */
@@ -52,51 +59,51 @@ public class LoginView{
     private ImageView ivWeixin;
 
     /**
-     * 忘记密码
+     * 登录
      */
-    private TextView resetPassword;
+    private TextView loginBtn;
+
     /**
      * 快速登录
      */
     private TextView speedLogin;
-    /**
-     * 注册
-     */
-    private TextView register;
 
     //编译控件
-    public static void build(LoginActivity loginActivity){
-        new LoginView(loginActivity);
+    public static void build(RegisterActivity registerActivity){
+        new RegisterView(registerActivity);
     }
-    //创建页面
-    public LoginView(LoginActivity loginActivity){
-        this.loginActivity=loginActivity;
-        initView(loginActivity);
+
+    public  RegisterView(RegisterActivity registerActivity){
+        this.registerActivity=registerActivity;
+        initView(registerActivity);
         initEvent();
     }
 
+
     /**
      * 初始化控件
-     * @param loginActivity
+     * @param registerActivity
      */
-    public  void initView(LoginActivity loginActivity){
-        //登录
-        etLoginName= (EditText) loginActivity.findViewById(R.id.et_login_name);
-        loginNameDel= (ImageView) loginActivity.findViewById(R.id.login_name_del);
+    public  void initView(RegisterActivity registerActivity){
+        //登录名
+        etLoginName= (EditText) registerActivity.findViewById(R.id.et_login_name);
+        loginNameDel= (ImageView) registerActivity.findViewById(R.id.login_name_del);
+        //验证码
+        etSmsCode = (EditText) registerActivity.findViewById(R.id.et_sms_code);
+        smsCodeDel = (ImageView) registerActivity.findViewById(R.id.sms_code_del);
+        sendCode = (TextView) registerActivity.findViewById(R.id.send_code);
         //密码
-        etPassword = (EditText) loginActivity.findViewById(R.id.et_paswword);
-        passwordDel = (ImageView) loginActivity.findViewById(R.id.password_del);
-        see_password = (ImageView) loginActivity.findViewById(R.id.see_password);
-        //登录按钮
-        loginBtn = (Button) loginActivity.findViewById(R.id.login_btn);
+        etPassword = (EditText) registerActivity.findViewById(R.id.et_paswword);
+        passwordDel = (ImageView) registerActivity.findViewById(R.id.password_del);
+        see_password = (ImageView) registerActivity.findViewById(R.id.see_password);
         //第三方登录
-        ivQQ = (ImageView) loginActivity.findViewById(R.id.iv_qq);
-        ivSina = (ImageView) loginActivity.findViewById(R.id.iv_sina);
-        ivWeixin = (ImageView) loginActivity.findViewById(R.id.iv_weixin);
-        //忘记密码
-        resetPassword = (TextView) loginActivity.findViewById(R.id.reset_password);
-        speedLogin = (TextView) loginActivity.findViewById(R.id.speed_login);
-        register = (TextView) loginActivity.findViewById(R.id.register);
+        ivQQ = (ImageView) registerActivity.findViewById(R.id.iv_qq);
+        ivSina = (ImageView) registerActivity.findViewById(R.id.iv_sina);
+        ivWeixin = (ImageView) registerActivity.findViewById(R.id.iv_weixin);
+        //快速登录
+        speedLogin = (TextView) registerActivity.findViewById(R.id.speed_login);
+        //登录
+        loginBtn = (TextView) registerActivity.findViewById(R.id.login_btn);
     }
 
     /**
@@ -131,6 +138,36 @@ public class LoginView{
             @Override
             public void onClick(View v) {
                 etLoginName.setText("");
+            }
+        });
+        //验证码输入框设置监听
+        etSmsCode.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!TextUtils.isEmpty(etSmsCode.getText())) {
+                    smsCodeDel.setVisibility(View.VISIBLE);
+
+                } else {
+                    smsCodeDel.setVisibility(View.GONE);
+                }
+
+            }
+        });
+        //验证码框数据清除
+        smsCodeDel.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                etSmsCode.setText("");
             }
         });
         //密码输入框设置监听
@@ -178,14 +215,14 @@ public class LoginView{
                 }
             }
         });
-        register.setOnClickListener(new View.OnClickListener(){
+
+        //返回登录界面
+        loginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(loginActivity, RegisterActivity.class);
-                loginActivity.startActivity(intent);
-
+                Intent intent=new Intent(registerActivity,LoginActivity.class);
+                registerActivity.startActivity(intent);
             }
         });
     }
-
 }

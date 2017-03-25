@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        new LoginView(this);
+        LoginView.build(this);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

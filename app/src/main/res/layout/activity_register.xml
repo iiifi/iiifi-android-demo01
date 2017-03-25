@@ -247,7 +247,7 @@
             android:src="@mipmap/login_weixin" />
     </LinearLayout>
 
-    <!--忘记密码，快速登录-->
+    <!--登录，快速登录-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -267,7 +267,7 @@
             />
 
         <TextView
-            android:id="@+id/reset_password"
+            android:id="@+id/speed_login"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:textColor="#e6e9ed"
