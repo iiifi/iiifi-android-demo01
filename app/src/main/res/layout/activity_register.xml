@@ -189,12 +189,31 @@
         android:layout_gravity="center"
         android:background="@mipmap/login_btn_one"
         />
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="注册即表示您同意她说"
+        android:textColor="#979589"
+        />
+        <TextView
+            android:id="@+id/user_protocol"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="《用户协议》"
+            android:textColor="#FF0C5DE7"
+            />
+    </LinearLayout>
     <!--第三方登录-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:layout_marginTop="35dp">
+        android:layout_marginTop="15dp">
 
         <View
             android:layout_width="wrap_content"
@@ -224,7 +243,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:gravity="center">
         <ImageView
             android:id="@+id/iv_qq"
@@ -258,7 +277,7 @@
             android:id="@+id/login_btn"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:textColor="#e6e9ed"
+            android:textColor="#979589"
             android:textSize="14sp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="60dp"
@@ -270,7 +289,7 @@
             android:id="@+id/speed_login"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:textColor="#e6e9ed"
+            android:textColor="#979589"
             android:textSize="14sp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="60dp"
