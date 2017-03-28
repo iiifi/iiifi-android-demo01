@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#777777"
+        android:layout_height="5dp"
+        android:background="#d1d1d1"
         ></LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:src="@mipmap/test_photo"
+            android:src="@mipmap/photo2"
             android:layout_centerInParent="true"
             />
         <LinearLayout
@@ -37,9 +37,9 @@
                     android:id="@+id/nick_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textColor="#187fc3"
-                    android:text="来年花朝"
+                    android:textSize="14sp"
+                    android:textColor="#FFC34B18"
+                    android:text="你微笑时很美"
                     />
             </LinearLayout>
             <LinearLayout
@@ -69,14 +69,14 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-    android:layout_margin="10dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <TextView
             android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textColor="#777777"
             android:text="     敬启者：紫衣侯竞死，吾实伤感，天下虽大，对手难寻，此人一死，吾更寂寞，吾至今方知求胜虽难，求败更不易。然七年之约，不可不赴，来年花朝，当赴中土，但愿东海之滨，有人能以三尺剑，赐我一败"
             />
@@ -159,10 +159,200 @@
             android:text="#谢霆锋"
             />
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="#d1d1d1"
+        ></View>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginBottom="10dp"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/icon_collection_sel"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="5dp"
+                android:text="2024"
+                android:textSize="12sp"
+                android:textColor="#187fc3"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="horizontal"
+            >
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#d1d1d1"
+                >
+            </View>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/icon_comment"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="5dp"
+                android:text="4096"
+                android:textSize="12sp"
+                android:textColor="#187fc3"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:orientation="horizontal"
+            >
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#d1d1d1"
+                >
+            </View>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/icon_star_sel"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="5dp"
+                android:text="4024"
+                android:textSize="12sp"
+                android:textColor="#187fc3"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            >
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#d1d1d1"
+                >
+            </View>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/icon_share"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="5dp"
+                android:text="分享"
+                android:textSize="12sp"
+                android:textColor="#187fc3"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#d1d1d1"
+        ></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_photo1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/test_photo"
+            android:layout_centerInParent="true"
+            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginLeft="12dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/nick_name1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#187fc3"
+                    android:text="时光映画"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:id="@+id/create_time1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:textColor="#777777"
+                    android:text="03-28 16:33"
+                    />
+                <TextView
+                    android:id="@+id/client_type1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:text="来自小米mix尊享版"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
+        <TextView
+            android:id="@+id/content1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textColor="#777777"
+            android:text="     敬启者：紫衣侯竞死，吾实伤感，天下虽大，对手难寻，此人一死，吾更寂寞，吾至今方知求胜虽难，求败更不易。然七年之约，不可不赴，来年花朝，当赴中土，但愿东海之滨，有人能以三尺剑，赐我一败"
+            />
     </LinearLayout>
 </LinearLayout>
