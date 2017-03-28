@@ -3,21 +3,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#d91919"
         >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello World   !"
-        android:textSize="50dp"
-        />
-    <Button
+ <!--   <Button
         android:id="@+id/login_btn"
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="200dp"
         android:text="登录"
-        />
+        />-->
     <include layout="@layout/content_main" />
 </LinearLayout>

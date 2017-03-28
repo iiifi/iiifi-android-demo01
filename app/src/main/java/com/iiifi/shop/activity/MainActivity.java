@@ -52,25 +52,25 @@ public class MainActivity extends AppCompatActivity {
     private Button loginBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        splashScreen = new SplashScreen(this);
+       /* splashScreen = new SplashScreen(this);
         splashScreen.show(R.drawable.art_login_bg,
-                SplashScreen.FADE_OUT);
+                SplashScreen.FADE_OUT);*/
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loginBtn= (Button) findViewById(R.id.login_btn);
+      /*  loginBtn= (Button) findViewById(R.id.login_btn);
         loginBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
-        });
-        HandlerUtil.getInstance(this).postDelayed(new Runnable() {
+        });*/
+       /* HandlerUtil.getInstance(this).postDelayed(new Runnable() {
             @Override
             public void run() {
                 splashScreen.removeSplashScreen();
             }
-        }, 3000);
+        }, 3000);*/
         init();
     }
 
@@ -118,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView image = (ImageView) view.findViewById(R.id.image);
         TextView title = (TextView) view.findViewById(R.id.title);
-
         image.setImageResource(mImages[index]);
         title.setText(mTitles[index]);
 
