@@ -6,14 +6,11 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.iiifi.shop.activity.MainActivity"
-    android:background="#FFCC0E0E"
     tools:showIn="@layout/activity_main">
-
     <android.support.v4.app.FragmentTabHost
         android:id="@android:id/tabhost"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -27,18 +24,17 @@
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/view_pager"
-                android:layout_weight="1"
+                android:layout_weight="0.93"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"/>
 
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="0dp"
+                android:layout_weight="0.07"
                 />
-
         </LinearLayout>
-
     </android.support.v4.app.FragmentTabHost>
 
 </RelativeLayout>
