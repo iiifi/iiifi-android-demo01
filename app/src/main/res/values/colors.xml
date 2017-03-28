@@ -7,4 +7,8 @@
     <color name="text_color_getverfy">#1992ff</color>
     <!-- 不可点击字体颜色 -->
     <color name="text_color_gray">#e6e9ed</color>
+
+
+    <color name="titleColor">#757575</color>
+    <color name="titleColorSelected">#F54D33</color>
 </resources>
