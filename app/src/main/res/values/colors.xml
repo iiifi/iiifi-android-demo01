@@ -9,6 +9,6 @@
     <color name="text_color_gray">#e6e9ed</color>
 
 
-    <color name="titleColor">#757575</color>
-    <color name="titleColorSelected">#F54D33</color>
+    <color name="titleColor">#777777</color>
+    <color name="titleColorSelected">#187fc3</color>
 </resources>
