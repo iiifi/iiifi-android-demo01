@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
-
+        mViewPager.setOffscreenPageLimit(4);
         mFragmentList = new ArrayList<Fragment>();
 
         mTabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);

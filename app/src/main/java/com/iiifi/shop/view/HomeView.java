@@ -1,5 +1,6 @@
 package com.iiifi.shop.view;
 
+import android.view.View;
 import android.widget.ListView;
 
 import com.iiifi.shop.activity.LoginActivity;
@@ -18,15 +19,16 @@ import java.util.List;
 
 public class HomeView {
     private HomeFragment homeFragment;
-
+    private View homeView;
     public List<Dynamic> dynamicList;
     //编译控件
-    public static void build(HomeFragment homeFragment){
-        new HomeView(homeFragment);
+    public static void build(HomeFragment homeFragment,View homeView){
+        new HomeView(homeFragment,homeView);
     }
 
-    public HomeView(HomeFragment homeFragment){
+    public HomeView(HomeFragment homeFragment,View homeView){
         this.homeFragment=homeFragment;
+        this.homeView=homeView;
         //初始化控件
         initView(homeFragment);
         //初始化事件
@@ -43,7 +45,7 @@ public class HomeView {
     public  void initView(HomeFragment homeFragment){
         initDynamicList();
         DynamicItemAdapter adapter=new DynamicItemAdapter(homeFragment.getActivity(),R.layout.dynamic_item,dynamicList);
-        ListView listView= (ListView) homeFragment.mRootView.findViewById(R.id.dynamic_list_view);
+        ListView listView= (ListView) homeView.findViewById(R.id.dynamic_list_view);
         listView.setAdapter(adapter);
     }
     /**

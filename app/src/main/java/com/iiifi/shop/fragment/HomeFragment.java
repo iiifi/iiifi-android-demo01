@@ -19,20 +19,19 @@ import com.iiifi.shop.view.HomeView;
  */
 public class HomeFragment extends Fragment {
 
-    public static View mRootView;
+    private View homeView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (mRootView == null){
-            Log.e("666","HomeFragment");
-            mRootView = inflater.inflate(R.layout.home_fragment,container,false);
+        if (homeView == null){
+            homeView = inflater.inflate(R.layout.home_fragment,container,false);
         }
-        ViewGroup parent = (ViewGroup) mRootView.getParent();
+        ViewGroup parent = (ViewGroup) homeView.getParent();
         if (parent != null){
-            parent.removeView(mRootView);
+            parent.removeView(homeView);
         }
-        HomeView.build(this);
-        return mRootView;
+        HomeView.build(this,homeView);
+        return homeView;
     }
 }
