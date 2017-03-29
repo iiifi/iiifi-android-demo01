@@ -12,13 +12,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         >
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_photo"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:src="@mipmap/photo2"
             android:layout_centerInParent="true"
@@ -37,7 +37,7 @@
                     android:id="@+id/nick_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="#FFC34B18"
                     android:text="你微笑时很美"
                     />
@@ -52,7 +52,7 @@
                     android:id="@+id/create_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     android:textColor="#777777"
                     android:text="03-28 16:33"
                     />
@@ -61,7 +61,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="#777777"
                     android:text="来自小米mix尊享版"
                     />
@@ -69,7 +69,10 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -136,7 +139,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textColor="#777777"
             android:text="望京soho-T2-C1507"
             />
@@ -145,7 +148,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textColor="#187fc3"
             android:text="#浣花洗剑录"
             />
@@ -154,7 +157,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textColor="#187fc3"
             android:text="#谢霆锋"
             />
@@ -286,13 +289,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         >
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_photo1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:src="@mipmap/test_photo"
             android:layout_centerInParent="true"
@@ -311,7 +314,7 @@
                     android:id="@+id/nick_name1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="#187fc3"
                     android:text="时光映画"
                     />
@@ -326,7 +329,7 @@
                     android:id="@+id/create_time1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     android:textColor="#777777"
                     android:text="03-28 16:33"
                     />
@@ -335,15 +338,18 @@
                     android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="#777777"
-                    android:text="来自小米mix尊享版"
+                    android:text="来自她说网页客户端"
                     />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
