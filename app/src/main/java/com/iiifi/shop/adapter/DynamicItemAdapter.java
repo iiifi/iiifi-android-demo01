@@ -67,12 +67,12 @@ public class DynamicItemAdapter extends ArrayAdapter<Dynamic> {
         if(IiifiConstant.TRUE.equals(dynamic.getIsCollection())){
             Glide.with(getContext()).load(R.mipmap.icon_collection_sel).into(viewHolder.collection);
         }
-      /*  viewHolder.collectionNum.setText(dynamic.getCollectionNum());
-        viewHolder.commentNum.setText(dynamic.getCommentNum());
+        viewHolder.collectionNum.setText(String.valueOf(dynamic.getCollectionNum()));
+        viewHolder.commentNum.setText(String.valueOf(dynamic.getCommentNum()));
         if(IiifiConstant.TRUE.equals(dynamic.getIsStar())){
             Glide.with(getContext()).load(R.mipmap.icon_star_sel).into(viewHolder.star);
         }
-        viewHolder.starNum.setText(dynamic.getStarNum());*/
+        viewHolder.starNum.setText(String.valueOf(dynamic.getStarNum()));
         return view;
     }
     class ViewHolder{

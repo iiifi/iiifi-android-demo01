@@ -75,7 +75,7 @@ public class HomeView {
         dynamic.setCreateTime("15小时前");
         dynamic.setClientType("来自小米mix尊享版");
         dynamic.setSendAddr("望京soho-T2-C1507");
-        dynamic.setCollectionNum(1024);
+        dynamic.setCollectionNum(21024);
         dynamic.setStarNum(20485);
         dynamic.setCommentNum(269428);
         dynamic.setIsCollection(IiifiConstant.TRUE);
