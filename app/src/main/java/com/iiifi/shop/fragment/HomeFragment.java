@@ -20,7 +20,7 @@ import com.iiifi.shop.view.HomeView;
 public class HomeFragment extends Fragment {
 
     public static View mRootView;
-    public static ListView listView;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,14 +34,5 @@ public class HomeFragment extends Fragment {
         }
         HomeView.build(this);
         return mRootView;
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        if (activity instanceof MainActivity) {
-            MainActivity mainActivity = (MainActivity) activity;
-            listView = (ListView) mainActivity.findViewById(R.id.dynamic_list_view);
-        }
     }
 }

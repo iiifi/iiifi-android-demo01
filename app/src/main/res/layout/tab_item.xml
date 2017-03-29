@@ -4,7 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d1d1d1"
+        />
     <ImageView
         android:id="@+id/image"
         android:src="@drawable/tabbar_home_select"
