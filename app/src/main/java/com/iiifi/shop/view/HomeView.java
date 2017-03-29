@@ -1,5 +1,6 @@
 package com.iiifi.shop.view;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.ListView;
 
@@ -18,8 +19,21 @@ import java.util.List;
  */
 
 public class HomeView {
+    /**
+     * 布局
+     */
     private HomeFragment homeFragment;
+    /**
+     * 页面对象
+     */
     private View homeView;
+    /**
+     * 适配器
+     */
+    private DynamicItemAdapter adapter;
+    /**
+     * 数据对象
+     */
     public List<Dynamic> dynamicList;
     //编译控件
     public static void build(HomeFragment homeFragment,View homeView){
@@ -44,7 +58,7 @@ public class HomeView {
      */
     public  void initView(HomeFragment homeFragment){
         initDynamicList();
-        DynamicItemAdapter adapter=new DynamicItemAdapter(homeFragment.getActivity(),R.layout.dynamic_item,dynamicList);
+        adapter=new DynamicItemAdapter(homeFragment.getActivity(),R.layout.dynamic_item,dynamicList);
         ListView listView= (ListView) homeView.findViewById(R.id.dynamic_list_view);
         listView.setAdapter(adapter);
     }
