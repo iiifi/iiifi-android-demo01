@@ -4,6 +4,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.iiifi.shop.activity.LoginActivity;
@@ -12,6 +14,7 @@ import com.iiifi.shop.adapter.DynamicItemAdapter;
 import com.iiifi.shop.constant.IiifiConstant;
 import com.iiifi.shop.entity.Dynamic;
 import com.iiifi.shop.fragment.HomeFragment;
+import com.wyt.searchbox.SearchFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +40,16 @@ public class HomeView {
      * 数据对象
      */
     public List<Dynamic> dynamicList;
+
+    //框对象
+    private SearchFragment searchFragment;
+
+
+    //搜索框
+    private EditText etKeyWords;
+
+    //搜索按钮
+    private ImageView searchIcon;
     //编译控件
     public static void build(HomeFragment homeFragment,View homeView){
         new HomeView(homeFragment,homeView);
@@ -59,18 +72,27 @@ public class HomeView {
      * @param homeFragment
      */
     public  void initView(HomeFragment homeFragment){
-        initDynamicList();
-        RecyclerView recyclerView= (RecyclerView) homeView.findViewById(R.id.recycler_view);
-        GridLayoutManager layoutManager=new GridLayoutManager(homeFragment.getActivity(),1);
-        recyclerView.setLayoutManager(layoutManager);
-        adapter=new DynamicItemAdapter(dynamicList);
-        recyclerView.setAdapter(adapter);
+        searchFragment = SearchFragment.newInstance();
+        searchFragment.setOnSearchClickListener(homeFragment);
+        etKeyWords= (EditText) homeView.findViewById(R.id.et_key_words);
+        searchIcon= (ImageView) homeView.findViewById(R.id.search_icon);
     }
     /**
      * 绑定控件事件
      */
     public void initEvent(){
-
+        etKeyWords.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                searchFragment.show(homeFragment.getActivity().getSupportFragmentManager(), SearchFragment.TAG);
+            }
+        });
+        searchIcon.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                searchFragment.show(homeFragment.getActivity().getSupportFragmentManager(), SearchFragment.TAG);
+            }
+        });
     }
 
     //初始化点击事件效果
@@ -79,7 +101,12 @@ public class HomeView {
     }
     //初始化数据
     public void initData(){
-
+        initDynamicList();
+        RecyclerView recyclerView= (RecyclerView) homeView.findViewById(R.id.recycler_view);
+        GridLayoutManager layoutManager=new GridLayoutManager(homeFragment.getActivity(),1);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter=new DynamicItemAdapter(dynamicList);
+        recyclerView.setAdapter(adapter);
     }
 
     public void initDynamicList(){

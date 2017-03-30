@@ -26,7 +26,6 @@
                 android:layout_marginBottom="5dp"
                 android:background="#ffffff"
                 >
-
                 <EditText
                     android:id="@+id/et_key_words"
                     android:layout_marginLeft="30dp"
@@ -42,6 +41,7 @@
                     android:textColor="#777777"
                     />
                 <ImageView
+                    android:id="@+id/search_icon"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"

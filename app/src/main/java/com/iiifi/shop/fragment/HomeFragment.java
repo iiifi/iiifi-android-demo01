@@ -8,18 +8,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.iiifi.shop.activity.MainActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.view.HomeView;
+import com.wyt.searchbox.SearchFragment;
+import com.wyt.searchbox.custom.IOnSearchClickListener;
 
 /**
  * Created by donglinghao on 2016-01-28.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements Toolbar.OnMenuItemClickListener, IOnSearchClickListener {
 
     private View homeView;
 
@@ -37,5 +41,15 @@ public class HomeFragment extends Fragment {
         }
         HomeView.build(this,homeView);
         return homeView;
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        return false;
+    }
+
+    @Override
+    public void OnSearchClick(String keyword) {
+        Toast.makeText(getContext(),keyword,Toast.LENGTH_SHORT).show();
     }
 }
