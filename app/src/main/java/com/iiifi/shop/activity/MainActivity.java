@@ -24,6 +24,7 @@ import com.iiifi.shop.fragment.ReportFragment;
 import com.iiifi.shop.handler.HandlerUtil;
 import com.iiifi.shop.widget.SplashScreen;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     private void init() {
 
         initView();
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             TabHost.TabSpec tabSpec = mTabHost.newTabSpec(mTitles[i]).setIndicator(getTabView(i));
             mTabHost.addTab(tabSpec,mClass[i],null);
             mFragmentList.add(mFragment[i]);
-            mTabHost.getTabWidget().getChildAt(i).setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+            mTabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.WHITE);
         }
 
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {

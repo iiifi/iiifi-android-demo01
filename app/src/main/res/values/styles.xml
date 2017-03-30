@@ -1,8 +1,9 @@
 <resources>
-
+    <!-- toolbar  去除左边框-->
     <style name="ClubToolbar" parent="Widget.AppCompat.Toolbar">
         <item name="contentInsetStart">0dp</item><!-- 设置该属性解决空白部分-->
     </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
