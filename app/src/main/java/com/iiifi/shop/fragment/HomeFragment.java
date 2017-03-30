@@ -25,42 +25,27 @@ import com.wyt.searchbox.custom.IOnSearchClickListener;
 /**
  * Created by donglinghao on 2016-01-28.
  */
-public class HomeFragment extends Fragment implements Toolbar.OnMenuItemClickListener, IOnSearchClickListener {
+public class HomeFragment extends Fragment implements  IOnSearchClickListener {
 
     private View homeView;
-    //搜索框对象
-    private SearchFragment searchFragment;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        setHasOptionsMenu(true);
         if (homeView == null){
             homeView = inflater.inflate(R.layout.home_fragment,container,false);
         }
         Toolbar toolbar= (Toolbar) homeView.findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.menu_main);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorPrimaryDark));
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ViewGroup parent = (ViewGroup) homeView.getParent();
         if (parent != null){
             parent.removeView(homeView);
         }
-        //初始化搜索框弹出层
-        searchFragment = SearchFragment.newInstance();
-        searchFragment.setOnSearchClickListener(this);
         HomeView.build(this,homeView);
         return homeView;
     }
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_main, menu);
-        super.onCreateOptionsMenu(menu,inflater);
-    }
-
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        searchFragment.show(this.getActivity().getSupportFragmentManager(), SearchFragment.TAG);
-        return false;
-    }
-
     @Override
     public void OnSearchClick(String keyword) {
         Toast.makeText(getContext(),keyword,Toast.LENGTH_SHORT).show();

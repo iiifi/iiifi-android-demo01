@@ -41,6 +41,10 @@ public class HomeView {
      */
     public List<Dynamic> dynamicList;
 
+    //搜索框对象
+    private SearchFragment searchFragment;
+
+    private View search;
     //编译控件
     public static void build(HomeFragment homeFragment,View homeView){
         new HomeView(homeFragment,homeView);
@@ -63,13 +67,21 @@ public class HomeView {
      * @param homeFragment
      */
     public  void initView(HomeFragment homeFragment){
-
+        //初始化搜索框弹出层
+        searchFragment = SearchFragment.newInstance();
+        searchFragment.setOnSearchClickListener(homeFragment);
+        search=homeView.findViewById(R.id.action_search);
     }
     /**
      * 绑定控件事件
      */
     public void initEvent(){
-
+        search.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                searchFragment.show(homeFragment.getActivity().getSupportFragmentManager(), SearchFragment.TAG);
+            }
+        });
     }
 
     //初始化点击事件效果
