@@ -1,6 +1,8 @@
 package com.iiifi.shop.view;
 
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ListView;
 
@@ -58,9 +60,11 @@ public class HomeView {
      */
     public  void initView(HomeFragment homeFragment){
         initDynamicList();
-        adapter=new DynamicItemAdapter(homeFragment.getActivity(),R.layout.dynamic_item,dynamicList);
-        ListView listView= (ListView) homeView.findViewById(R.id.dynamic_list_view);
-        listView.setAdapter(adapter);
+        RecyclerView recyclerView= (RecyclerView) homeView.findViewById(R.id.recycler_view);
+        GridLayoutManager layoutManager=new GridLayoutManager(homeFragment.getActivity(),1);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter=new DynamicItemAdapter(dynamicList);
+        recyclerView.setAdapter(adapter);
     }
     /**
      * 绑定控件事件

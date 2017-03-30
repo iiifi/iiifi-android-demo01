@@ -13,13 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.iiifi.shop.activity.R;
-import com.iiifi.shop.adapter.HomeAdapter;
+import com.iiifi.shop.adapter.DynamicItemAdapter;
 import com.iiifi.shop.constant.IiifiConstant;
 import com.iiifi.shop.entity.Dynamic;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by donglinghao on 2016-01-28.
@@ -28,7 +27,7 @@ public class MessageFragment extends Fragment {
 
     private View mRootView;
     private List<Dynamic> dynamicList;
-    private HomeAdapter adapter;
+    private DynamicItemAdapter adapter;
     private SwipeRefreshLayout swipeRefresh;
     @Nullable
     @Override
@@ -47,7 +46,7 @@ public class MessageFragment extends Fragment {
         RecyclerView recyclerView= (RecyclerView) mRootView.findViewById(R.id.recycler_view);
         GridLayoutManager layoutManager=new GridLayoutManager(this.getActivity(),1);
         recyclerView.setLayoutManager(layoutManager);
-        adapter=new HomeAdapter(dynamicList);
+        adapter=new DynamicItemAdapter(dynamicList);
         recyclerView.setAdapter(adapter);
         return mRootView;
     }
