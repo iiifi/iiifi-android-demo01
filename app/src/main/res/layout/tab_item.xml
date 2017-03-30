@@ -12,6 +12,7 @@
     <ImageView
         android:id="@+id/image"
         android:src="@drawable/tabbar_home_select"
+        android:layout_marginTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

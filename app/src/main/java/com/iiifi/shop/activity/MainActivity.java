@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             TabHost.TabSpec tabSpec = mTabHost.newTabSpec(mTitles[i]).setIndicator(getTabView(i));
             mTabHost.addTab(tabSpec,mClass[i],null);
             mFragmentList.add(mFragment[i]);
-            mTabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.WHITE);
+            mTabHost.getTabWidget().getChildAt(i).setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         }
 
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
