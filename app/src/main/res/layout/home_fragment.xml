@@ -26,28 +26,27 @@
                 android:layout_marginBottom="5dp"
                 android:background="#ffffff"
                 >
+
                 <EditText
                     android:id="@+id/et_key_words"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="30dp"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.85"
+                    android:layout_weight="0.75"
                     android:inputType="text"
                     android:textSize="16sp"
                     android:background="@null"
                     android:textCursorDrawable="@null"
                     android:hint="请输入关键字"
+                    android:textColorHint="#d1d1d1"
                     android:textColor="#777777"
                     />
-
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.15"
-                    android:layout_marginLeft="10dp"
+                    android:layout_weight="0.25"
                     android:src="@mipmap/icon_search"
                     />
-
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
 
