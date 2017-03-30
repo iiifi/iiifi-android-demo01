@@ -41,15 +41,6 @@ public class HomeView {
      */
     public List<Dynamic> dynamicList;
 
-    //框对象
-    private SearchFragment searchFragment;
-
-
-    //搜索框
-    private EditText etKeyWords;
-
-    //搜索按钮
-    private ImageView searchIcon;
     //编译控件
     public static void build(HomeFragment homeFragment,View homeView){
         new HomeView(homeFragment,homeView);
@@ -72,27 +63,13 @@ public class HomeView {
      * @param homeFragment
      */
     public  void initView(HomeFragment homeFragment){
-        searchFragment = SearchFragment.newInstance();
-        searchFragment.setOnSearchClickListener(homeFragment);
-        etKeyWords= (EditText) homeView.findViewById(R.id.et_key_words);
-        searchIcon= (ImageView) homeView.findViewById(R.id.search_icon);
+
     }
     /**
      * 绑定控件事件
      */
     public void initEvent(){
-        etKeyWords.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                searchFragment.show(homeFragment.getActivity().getSupportFragmentManager(), SearchFragment.TAG);
-            }
-        });
-        searchIcon.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                searchFragment.show(homeFragment.getActivity().getSupportFragmentManager(), SearchFragment.TAG);
-            }
-        });
+
     }
 
     //初始化点击事件效果
