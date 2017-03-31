@@ -14,10 +14,10 @@ import com.iiifi.shop.activity.MainActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.view.BaseActivityView;
 import com.iiifi.shop.common.util.HandlerUtil;
+import com.iiifi.shop.fragment.DynamicFragment;
 import com.iiifi.shop.fragment.HomeFragment;
 import com.iiifi.shop.fragment.MessageFragment;
 import com.iiifi.shop.fragment.MineFragment;
-import com.iiifi.shop.fragment.ReportFragment;
 import com.iiifi.shop.widget.SplashScreen;
 
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public class MainView extends BaseActivityView<MainActivity>{
     private FragmentTabHost mTabHost;
     private ViewPager mViewPager;
     private List<Fragment> mFragmentList;
-    private static Class mClass[] = {HomeFragment.class,ReportFragment.class,MessageFragment.class,MineFragment.class};
-    private static Fragment mFragment[] = {new HomeFragment(),new ReportFragment(),new MessageFragment(),new MineFragment()};
+    private static Class mClass[] = {HomeFragment.class,DynamicFragment.class,MessageFragment.class,MineFragment.class};
+    private static Fragment mFragment[] = {new HomeFragment(),new DynamicFragment(),new MessageFragment(),new MineFragment()};
     private static String mTitles[] = {"她说","动态","发现","我的"};
 
     private MainActivity mainActivity;
