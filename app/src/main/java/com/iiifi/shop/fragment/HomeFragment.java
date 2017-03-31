@@ -1,5 +1,6 @@
 package com.iiifi.shop.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,10 +8,12 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.view.HomeView;
 import com.wyt.searchbox.custom.IOnSearchClickListener;
@@ -41,4 +44,16 @@ public class HomeFragment extends Fragment implements  IOnSearchClickListener {
     public void OnSearchClick(String keyword) {
         Toast.makeText(getContext(),keyword,Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                startActivity(new Intent(this.getActivity(), LoginActivity.class));
+                break;
+            default:
+        }
+        return true;
+    }
+
 }
