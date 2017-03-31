@@ -56,7 +56,7 @@ public class MainView extends BaseActivityView<MainActivity>{
 
     public void initView() {
         //启动动画
-        splashScreen = new SplashScreen(mainActivity);
+        /*splashScreen = new SplashScreen(mainActivity);
         splashScreen.show(R.drawable.art_login_bg,
                 SplashScreen.FADE_OUT);
         HandlerUtil.getInstance(mainActivity).postDelayed(new Runnable() {
@@ -64,7 +64,7 @@ public class MainView extends BaseActivityView<MainActivity>{
             public void run() {
                 splashScreen.removeSplashScreen();
             }
-        }, 3000);
+        }, 3000);*/
 
         //初始化 tabbar 布局
         mTabHost = (FragmentTabHost) mainActivity.findViewById(android.R.id.tabhost);

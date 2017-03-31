@@ -25,10 +25,16 @@
                 android:orientation="horizontal"
                 android:gravity="center"
                 >
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:src="@mipmap/icon_send"
+                    />
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.6"
+                    android:layout_weight="0.8"
                     android:gravity="center"
                     android:textSize="17sp"
                     android:text="你微笑时很美"

@@ -51,7 +51,7 @@ public class DynamicView extends BaseFragmentView<DynamicFragment,View> {
 
     @Override
     public void initView() {
-        ToolBarUtil.buildToolBar((AppCompatActivity)fragment.getActivity(),view,false,false,"",true,true,R.mipmap.icon_home,true,R.menu.menu_main);
+        ToolBarUtil.buildToolBar((AppCompatActivity)fragment.getActivity(),view,false,false,"",false,false,R.mipmap.icon_home,true,R.menu.menu_main);
         //初始化搜索框弹出层
         searchFragment = SearchFragment.newInstance();
         searchFragment.setOnSearchClickListener(fragment);
