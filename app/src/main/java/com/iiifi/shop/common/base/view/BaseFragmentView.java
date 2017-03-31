@@ -10,8 +10,6 @@ public abstract class BaseFragmentView<T,V> implements  BaseView{
     public V view;
 
     public  BaseFragmentView(T fragment, V view){
-        this.fragment=fragment;
-        this.view=view;
         build(fragment,view);
         initView();
         initEvent();
