@@ -22,7 +22,7 @@ import java.util.List;
  * 创建时间:  2017/3/20 on 9:42
  * 描述:     TODO RecyclerView的封装适配器
  */
-public abstract class BaseRecyclerAdapter<D, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH>
+public  class BaseRecyclerAdapter<T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH>
         implements View.OnClickListener, View.OnLongClickListener {
     /**
      * 内容上下文
@@ -32,7 +32,7 @@ public abstract class BaseRecyclerAdapter<D, VH extends RecyclerView.ViewHolder>
     /**
      * 数据源
      */
-    private List<D> data;
+    private List<T> data;
     /**
      * 布局资源id
      */
@@ -48,8 +48,8 @@ public abstract class BaseRecyclerAdapter<D, VH extends RecyclerView.ViewHolder>
     private onItemLongClickListener longListener;
 
 
-    public BaseRecyclerAdapter(int layoutResId, List<D> data) {
-        this.data = data == null ? new ArrayList<D>() : data;
+    public BaseRecyclerAdapter(int layoutResId, List<T> data) {
+        this.data = data == null ? new ArrayList<T>() : data;
         if (layoutResId != 0) {
             this.layoutResId = layoutResId;
         } else {
@@ -97,7 +97,7 @@ public abstract class BaseRecyclerAdapter<D, VH extends RecyclerView.ViewHolder>
      * @param holder 视图管理者
      * @param data   数据源
      */
-    protected abstract void bindTheData(VH holder, D data, int position);
+    protected  void bindTheData(VH holder, T data, int position){};
 
     @Override
     public void onClick(View v) {

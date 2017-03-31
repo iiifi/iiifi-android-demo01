@@ -46,7 +46,7 @@ public class MessageFragment extends Fragment {
         RecyclerView recyclerView= (RecyclerView) mRootView.findViewById(R.id.recycler_view);
         GridLayoutManager layoutManager=new GridLayoutManager(this.getActivity(),1);
         recyclerView.setLayoutManager(layoutManager);
-        adapter=new DynamicItemAdapter(dynamicList);
+        adapter=new DynamicItemAdapter(R.layout.dynamic_item,dynamicList);
         recyclerView.setAdapter(adapter);
         return mRootView;
     }

@@ -1,16 +1,10 @@
 package com.iiifi.shop.view;
 
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
 
-import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
-import com.iiifi.shop.adapter.DynamicAdapter;
 import com.iiifi.shop.adapter.DynamicItemAdapter;
 import com.iiifi.shop.constant.IiifiConstant;
 import com.iiifi.shop.entity.Dynamic;
@@ -36,7 +30,7 @@ public class HomeView {
     /**
      * 适配器
      */
-    private DynamicAdapter adapter;
+    private DynamicItemAdapter adapter;
     /**
      * 数据对象
      */
@@ -92,12 +86,10 @@ public class HomeView {
     //初始化数据
     public void initData(){
         initDynamicList();
-
-
         RecyclerView recyclerView= (RecyclerView) homeView.findViewById(R.id.recycler_view);
         GridLayoutManager layoutManager=new GridLayoutManager(homeFragment.getActivity(),1);
         recyclerView.setLayoutManager(layoutManager);
-        adapter=new DynamicAdapter(R.layout.dynamic_item,dynamicList);
+        adapter=new DynamicItemAdapter(R.layout.dynamic_item,dynamicList);
         recyclerView.setAdapter(adapter);
     }
 
