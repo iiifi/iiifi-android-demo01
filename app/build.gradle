@@ -27,7 +27,16 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.2.0'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:25.2.0'
+    //圆形图片
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    //图片加载
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    //搜索框
     compile 'com.wenwenwen888:searchbox:1.0.0'
+
+    //九宫格图片
+    compile 'pub.devrel:easypermissions:0.2.1'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'cn.bingoogolapple:bga-photopicker:1.2.3@aar'
+    compile 'cn.bingoogolapple:bga-adapter:1.1.8@aar'
 }

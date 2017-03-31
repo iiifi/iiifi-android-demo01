@@ -31,15 +31,14 @@ public class ToolBarUtil {
         if(isMenu)
             toolbar.inflateMenu(menu);
         activity.setSupportActionBar(toolbar);
-        if (displayHome){
-            activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
         ActionBar actionBar=activity.getSupportActionBar();
         if(actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            if(isIcon){
-              actionBar.setHomeAsUpIndicator(homeIcon);
-             }
+            if (displayHome){
+                actionBar.setDisplayHomeAsUpEnabled(true);
+                if(isIcon){
+                    actionBar.setHomeAsUpIndicator(homeIcon);
+                }
+            }
          }
     }
     //Activity个性化设置toolbar
@@ -55,10 +54,9 @@ public class ToolBarUtil {
         Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
         toolbar.setTitle(toolTitle);
         activity.setSupportActionBar(toolbar);
-        if (displayHome){
-            activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            ActionBar actionBar= activity.getSupportActionBar();
-            if(actionBar!=null){
+        ActionBar actionBar= activity.getSupportActionBar();
+        if(actionBar!=null){
+            if (displayHome){
                 actionBar.setDisplayHomeAsUpEnabled(true);
                 if(isIcon){
                     actionBar.setHomeAsUpIndicator(homeIcon);
