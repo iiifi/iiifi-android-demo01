@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
+import com.iiifi.shop.adapter.DynamicAdapter;
 import com.iiifi.shop.adapter.DynamicItemAdapter;
 import com.iiifi.shop.constant.IiifiConstant;
 import com.iiifi.shop.entity.Dynamic;
@@ -35,7 +36,7 @@ public class HomeView {
     /**
      * 适配器
      */
-    private DynamicItemAdapter adapter;
+    private DynamicAdapter adapter;
     /**
      * 数据对象
      */
@@ -91,10 +92,12 @@ public class HomeView {
     //初始化数据
     public void initData(){
         initDynamicList();
+
+
         RecyclerView recyclerView= (RecyclerView) homeView.findViewById(R.id.recycler_view);
         GridLayoutManager layoutManager=new GridLayoutManager(homeFragment.getActivity(),1);
         recyclerView.setLayoutManager(layoutManager);
-        adapter=new DynamicItemAdapter(dynamicList);
+        adapter=new DynamicAdapter(R.layout.dynamic_item,dynamicList);
         recyclerView.setAdapter(adapter);
     }
 
