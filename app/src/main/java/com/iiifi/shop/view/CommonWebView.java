@@ -6,6 +6,7 @@ import android.webkit.WebView;
 import com.iiifi.shop.activity.CommonWebActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
+import com.iiifi.shop.common.util.ToolBarUtil;
 
 /**
  * Created by dmm on 2017/3/25.
@@ -14,7 +15,10 @@ import com.iiifi.shop.activity.RegisterActivity;
 public class CommonWebView {
 
     private CommonWebActivity commonWebActivity;
+    private static final String TOOL_TITLE="用户协议";
+    //内容URL
     private String loadUrl;
+    //webView
     private WebView common_web;
 
     //编译控件
@@ -38,6 +42,10 @@ public class CommonWebView {
      * @param commonWebActivity
      */
     public  void initView(CommonWebActivity commonWebActivity){
+
+        //设置个性化ToolBar
+        ToolBarUtil.buildToolBar(commonWebActivity,true,true,TOOL_TITLE,true,false,0);
+        //加载webView
         common_web = (WebView) commonWebActivity.findViewById(R.id.common_web);
         Intent intent=commonWebActivity.getIntent();
         loadUrl=intent.getStringExtra("loadUrl");

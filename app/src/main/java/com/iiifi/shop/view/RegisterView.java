@@ -21,6 +21,7 @@ import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
 import com.iiifi.shop.activity.SpeedActivity;
+import com.iiifi.shop.common.util.ToolBarUtil;
 
 /**
  * Created by dmm on 2017/3/25.
@@ -31,6 +32,10 @@ public class RegisterView {
     private static boolean IS_SEE=false;
 
     private RegisterActivity registerActivity;
+    /**
+     * title
+     */
+    private static final String TOOL_TITLE="注册";
 
     //手机号码正则表达式
     private static final String phoneRegex = "^1(3|4|5|7|8)\\d{9}";
@@ -97,7 +102,7 @@ public class RegisterView {
     public  RegisterView(RegisterActivity registerActivity){
         this.registerActivity=registerActivity;
         //初始化控件
-        initView(registerActivity);
+        initView();
         //初始化事件
         initEvent();
         //初始化是否可点击
@@ -107,9 +112,10 @@ public class RegisterView {
 
     /**
      * 初始化控件
-     * @param registerActivity
      */
-    public  void initView(RegisterActivity registerActivity){
+    public  void initView(){
+        //设置个性化ToolBar
+        ToolBarUtil.buildToolBar(registerActivity,true,true,TOOL_TITLE,true,false,0);
         //登录名
         etLoginName= (EditText) registerActivity.findViewById(R.id.et_login_name);
         loginNameDel= (ImageView) registerActivity.findViewById(R.id.login_name_del);
