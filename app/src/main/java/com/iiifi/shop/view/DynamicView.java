@@ -1,10 +1,13 @@
 package com.iiifi.shop.view;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
+import com.iiifi.shop.activity.DynamicAddActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.adapter.DynamicItemAdapter;
 import com.iiifi.shop.common.base.view.BaseFragmentView;
@@ -39,6 +42,8 @@ public class DynamicView extends BaseFragmentView<DynamicFragment,View> {
 
     private View search;
 
+    private ImageView addDynamic;
+
     public DynamicView(DynamicFragment dynamicFragment, View homeView ){
         super(dynamicFragment,homeView);
     }
@@ -56,6 +61,7 @@ public class DynamicView extends BaseFragmentView<DynamicFragment,View> {
         searchFragment = SearchFragment.newInstance();
         searchFragment.setOnSearchClickListener(fragment);
         search=view.findViewById(R.id.action_search);
+        addDynamic= (ImageView) view.findViewById(R.id.add_dynamic);
     }
 
     @Override
@@ -64,6 +70,13 @@ public class DynamicView extends BaseFragmentView<DynamicFragment,View> {
             @Override
             public void onClick(View v) {
                 searchFragment.show(fragment.getActivity().getSupportFragmentManager(), SearchFragment.TAG);
+            }
+        });
+
+        addDynamic.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                fragment.getActivity().startActivity(new Intent(fragment.getContext(), DynamicAddActivity.class));
             }
         });
     }

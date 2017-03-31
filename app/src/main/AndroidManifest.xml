@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.iiifi.shop.activity">
+
     <!-- 请求网络 -->
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/tashuo_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustPan|stateHidden"
-            >
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +24,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".SpeedActivity" />
         <activity android:name=".ResetPwdActivity" />
-        <activity android:name=".CommonWebActivity"></activity>
+        <activity android:name=".CommonWebActivity" />
+        <activity android:name=".DynamicAddActivity"></activity>
     </application>
 
 </manifest>
