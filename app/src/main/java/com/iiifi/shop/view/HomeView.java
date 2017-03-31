@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.adapter.DynamicItemAdapter;
+import com.iiifi.shop.common.base.view.BaseFragmentView;
 import com.iiifi.shop.constant.IiifiConstant;
 import com.iiifi.shop.entity.Dynamic;
 import com.iiifi.shop.fragment.HomeFragment;
@@ -18,15 +19,9 @@ import java.util.List;
  * Created by dmm on 2017/3/29.
  */
 
-public class HomeView {
-    /**
-     * 布局
-     */
-    private HomeFragment homeFragment;
-    /**
-     * 页面对象
-     */
-    private View homeView;
+public class HomeView  extends BaseFragmentView<HomeFragment,View> {
+    public HomeFragment fragment;
+    public View view;
     /**
      * 适配器
      */
@@ -40,54 +35,45 @@ public class HomeView {
     private SearchFragment searchFragment;
 
     private View search;
-    //编译控件
-    public static void build(HomeFragment homeFragment,View homeView){
-        new HomeView(homeFragment,homeView);
+
+    public HomeView(HomeFragment homeFragment,View homeView ){
+        super(homeFragment,homeView);
     }
 
-    public HomeView(HomeFragment homeFragment,View homeView){
-        this.homeFragment=homeFragment;
-        this.homeView=homeView;
-        //初始化控件
-        initView(homeFragment);
-        //初始化事件
-        initEvent();
-        //初始化点击效果
-        initClickEffect();
-        //初始化数据
-        initData();
+    @Override
+    public void build(HomeFragment fragment, View view) {
+        this.fragment=fragment;
+        this.view=view;
     }
-    /**
-     * 初始化控件
-     * @param homeFragment
-     */
-    public  void initView(HomeFragment homeFragment){
+
+    @Override
+    public void initView() {
         //初始化搜索框弹出层
         searchFragment = SearchFragment.newInstance();
-        searchFragment.setOnSearchClickListener(homeFragment);
-        search=homeView.findViewById(R.id.action_search);
+        searchFragment.setOnSearchClickListener(fragment);
+        search=view.findViewById(R.id.action_search);
     }
-    /**
-     * 绑定控件事件
-     */
-    public void initEvent(){
+
+    @Override
+    public void initEvent() {
         search.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                searchFragment.show(homeFragment.getActivity().getSupportFragmentManager(), SearchFragment.TAG);
+                searchFragment.show(fragment.getActivity().getSupportFragmentManager(), SearchFragment.TAG);
             }
         });
     }
 
-    //初始化点击事件效果
-    public void initClickEffect(){
+    @Override
+    public void initClickEffect() {
 
     }
-    //初始化数据
-    public void initData(){
+
+    @Override
+    public void initData() {
         initDynamicList();
-        RecyclerView recyclerView= (RecyclerView) homeView.findViewById(R.id.recycler_view);
-        GridLayoutManager layoutManager=new GridLayoutManager(homeFragment.getActivity(),1);
+        RecyclerView recyclerView= (RecyclerView) view.findViewById(R.id.recycler_view);
+        GridLayoutManager layoutManager=new GridLayoutManager(fragment.getActivity(),1);
         recyclerView.setLayoutManager(layoutManager);
         adapter=new DynamicItemAdapter(R.layout.dynamic_item,dynamicList);
         recyclerView.setAdapter(adapter);

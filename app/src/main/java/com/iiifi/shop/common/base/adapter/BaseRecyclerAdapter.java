@@ -1,4 +1,4 @@
-package com.iiifi.shop.common.base;
+package com.iiifi.shop.common.base.adapter;
 
 import android.content.Context;
 import android.support.annotation.DrawableRes;
