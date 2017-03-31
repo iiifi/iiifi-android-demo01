@@ -16,7 +16,7 @@ public class CommonWebActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_common_web);
         //编译view
-        CommonWebView.build(this);
+        new CommonWebView(this);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

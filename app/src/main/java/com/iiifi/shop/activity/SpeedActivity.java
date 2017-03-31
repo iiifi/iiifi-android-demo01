@@ -15,7 +15,7 @@ public class SpeedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speed);
         //编译控件
-        SpeedView.build(this);
+        new SpeedView(this);
     }
 
     @Override

@@ -93,7 +93,7 @@ public class LoginView extends BaseActivityView<LoginActivity>{
     @Override
     public  void initView(){
         //设置个性化ToolBar
-        ToolBarUtil.buildToolBar(loginActivity,true,true,TOOL_TITLE,true,false,0);
+        ToolBarUtil.buildActivityToolBar(loginActivity,true,true,TOOL_TITLE,true,false,0);
         //登录
         etLoginName= (EditText) loginActivity.findViewById(R.id.et_login_name);
         loginNameDel= (ImageView) loginActivity.findViewById(R.id.login_name_del);

@@ -95,7 +95,7 @@ public class SpeedView extends BaseActivityView<SpeedActivity>{
     @Override
     public  void initView(){
         //设置个性化ToolBar
-        ToolBarUtil.buildToolBar(speedActivity,true,true,TOOL_TITLE,true,false,0);
+        ToolBarUtil.buildActivityToolBar(speedActivity,true,true,TOOL_TITLE,true,false,0);
         //登录名
         etLoginName= (EditText) speedActivity.findViewById(R.id.et_login_name);
         loginNameDel= (ImageView) speedActivity.findViewById(R.id.login_name_del);

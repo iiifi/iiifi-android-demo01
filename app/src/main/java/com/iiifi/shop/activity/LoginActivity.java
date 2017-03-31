@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        LoginView.build(this);
+       new LoginView(this);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

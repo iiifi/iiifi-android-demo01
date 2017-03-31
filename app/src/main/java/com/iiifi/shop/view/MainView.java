@@ -32,14 +32,14 @@ public class MainView extends BaseActivityView<MainActivity>{
     private FragmentTabHost mTabHost;
     private ViewPager mViewPager;
     private List<Fragment> mFragmentList;
-    private Class mClass[] = {HomeFragment.class,ReportFragment.class,MessageFragment.class,MineFragment.class};
-    private Fragment mFragment[] = {new HomeFragment(),new ReportFragment(),new MessageFragment(),new MineFragment()};
-    private String mTitles[] = {"她说","动态","发现","我的"};
+    private static Class mClass[] = {HomeFragment.class,ReportFragment.class,MessageFragment.class,MineFragment.class};
+    private static Fragment mFragment[] = {new HomeFragment(),new ReportFragment(),new MessageFragment(),new MineFragment()};
+    private static String mTitles[] = {"她说","动态","发现","我的"};
 
     private MainActivity mainActivity;
     private SplashScreen splashScreen;
 
-    private int mImages[] = {
+    private static int mImages[] = {
             R.drawable.tab_home,
             R.drawable.tab_good_content,
             R.drawable.tab_find_content,

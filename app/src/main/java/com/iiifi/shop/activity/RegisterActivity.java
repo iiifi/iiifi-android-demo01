@@ -15,7 +15,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         //编译view
-        RegisterView.build(this);
+       new RegisterView(this);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

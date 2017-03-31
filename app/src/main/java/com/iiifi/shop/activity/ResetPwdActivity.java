@@ -17,7 +17,7 @@ public class ResetPwdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_pwd);
         //编译控件
-        ResetPwdView.build(this);
+        new ResetPwdView(this);
     }
 
     @Override

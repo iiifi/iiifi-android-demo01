@@ -109,7 +109,7 @@ public class ResetPwdView extends BaseActivityView<ResetPwdActivity>{
     @Override
     public  void initView(){
         //设置个性化ToolBar
-        ToolBarUtil.buildToolBar(resetPwdActivity,true,true,TOOL_TITLE,true,false,0);
+        ToolBarUtil.buildActivityToolBar(resetPwdActivity,true,true,TOOL_TITLE,true,false,0);
         //登录名
         etLoginName= (EditText) resetPwdActivity.findViewById(R.id.et_login_name);
         loginNameDel= (ImageView) resetPwdActivity.findViewById(R.id.login_name_del);

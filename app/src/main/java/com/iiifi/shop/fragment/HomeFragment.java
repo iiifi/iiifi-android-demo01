@@ -28,15 +28,6 @@ public class HomeFragment extends Fragment implements  IOnSearchClickListener {
         if (homeView == null){
             homeView = inflater.inflate(R.layout.home_fragment,container,false);
         }
-        //设置toolbar
-        Toolbar toolbar= (Toolbar) homeView.findViewById(R.id.toolbar);
-        toolbar.inflateMenu(R.menu.menu_main);
-        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        ActionBar actionBar= ((AppCompatActivity) getActivity()).getSupportActionBar();
-        if(actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.mipmap.icon_home);
-        }
         ViewGroup parent = (ViewGroup) homeView.getParent();
         if (parent != null){
             parent.removeView(homeView);

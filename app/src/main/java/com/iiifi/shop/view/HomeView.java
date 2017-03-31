@@ -1,12 +1,15 @@
 package com.iiifi.shop.view;
 
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.adapter.DynamicItemAdapter;
 import com.iiifi.shop.common.base.view.BaseFragmentView;
+import com.iiifi.shop.common.util.ToolBarUtil;
 import com.iiifi.shop.constant.IiifiConstant;
 import com.iiifi.shop.entity.Dynamic;
 import com.iiifi.shop.fragment.HomeFragment;
@@ -48,6 +51,7 @@ public class HomeView  extends BaseFragmentView<HomeFragment,View> {
 
     @Override
     public void initView() {
+        ToolBarUtil.buildToolBar((AppCompatActivity)fragment.getActivity(),view,false,false,"",true,true,R.mipmap.icon_home,true,R.menu.menu_main);
         //初始化搜索框弹出层
         searchFragment = SearchFragment.newInstance();
         searchFragment.setOnSearchClickListener(fragment);
