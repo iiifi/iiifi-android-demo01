@@ -21,13 +21,14 @@ import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
 import com.iiifi.shop.activity.ResetPwdActivity;
 import com.iiifi.shop.activity.SpeedActivity;
+import com.iiifi.shop.common.base.view.BaseActivityView;
 import com.iiifi.shop.common.util.ToolBarUtil;
 
 /**
  * Created by dmm on 2017/3/24.
  */
 
-public class LoginView{
+public class LoginView extends BaseActivityView<LoginActivity>{
 
     private static boolean IS_SEE=false;
 
@@ -78,24 +79,18 @@ public class LoginView{
      */
     private TextView register;
 
-    //编译控件
-    public static void build(LoginActivity loginActivity){
-        new LoginView(loginActivity);
-    }
-
     public LoginView(LoginActivity loginActivity){
-        this.loginActivity=loginActivity;
-        //初始化控件
-        initView();
-        //初始化事件
-        initEvent();
-        //初始化点击效果
-        initClickEffect();
+        super(loginActivity);
+    }
+    @Override
+    public void build(LoginActivity activity) {
+        this.loginActivity=activity;
     }
 
     /**
      * 初始化控件
      */
+    @Override
     public  void initView(){
         //设置个性化ToolBar
         ToolBarUtil.buildToolBar(loginActivity,true,true,TOOL_TITLE,true,false,0);
@@ -121,6 +116,7 @@ public class LoginView{
     /**
      * 绑定控件事件
      */
+    @Override
     public void initEvent(){
         //登录名输入框设置监听
         etLoginName.addTextChangedListener(new TextWatcher() {
@@ -229,9 +225,16 @@ public class LoginView{
     }
 
     //初始化点击事件效果
+    @Override
     public void initClickEffect(){
         loginBtn.setClickable(false);
     }
+
+    @Override
+    public void initData() {
+
+    }
+
     //校验注册按钮是否可点击
     public void checkLogin(){
         if(checkLoginName()&&checkPassword()){
@@ -252,4 +255,5 @@ public class LoginView{
         String password=etPassword.getText().toString().trim();
         return (!TextUtils.isEmpty(password))&&password.matches(passwordRegex);
     }
+
 }

@@ -21,13 +21,14 @@ import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
 import com.iiifi.shop.activity.ResetPwdActivity;
 import com.iiifi.shop.activity.SpeedActivity;
+import com.iiifi.shop.common.base.view.BaseActivityView;
 import com.iiifi.shop.common.util.ToolBarUtil;
 
 /**
  * Created by dmm on 2017/3/25.
  */
 
-public class ResetPwdView {
+public class ResetPwdView extends BaseActivityView<ResetPwdActivity>{
 
 
     private static boolean IS_SEE=false;
@@ -92,25 +93,20 @@ public class ResetPwdView {
      */
     private TextView speedLogin;
 
-    //编译控件
-    public static void build(ResetPwdActivity resetPwdActivity){
-        new ResetPwdView(resetPwdActivity);
-    }
 
     public  ResetPwdView(ResetPwdActivity resetPwdActivity){
-        this.resetPwdActivity=resetPwdActivity;
-        //初始化控件
-        initView();
-        //初始化事件
-        initEvent();
-        //初始化是否可点击
-        initClickEffect();
+        super(resetPwdActivity);
     }
 
-
+    //编译控件
+    @Override
+    public void build(ResetPwdActivity resetPwdActivity){
+        this.resetPwdActivity=resetPwdActivity;
+    }
     /**
      * 初始化控件
      */
+    @Override
     public  void initView(){
         //设置个性化ToolBar
         ToolBarUtil.buildToolBar(resetPwdActivity,true,true,TOOL_TITLE,true,false,0);
@@ -140,6 +136,7 @@ public class ResetPwdView {
     /**
      * 初始化事件
      */
+    @Override
     public void initEvent(){
         //登录名输入框设置监听
         etLoginName.addTextChangedListener(new TextWatcher() {
@@ -302,10 +299,17 @@ public class ResetPwdView {
     }
 
     //初始化点击事件效果
+    @Override
     public void initClickEffect(){
         sendCode.setClickable(false);
         resetPwdBtn.setClickable(false);
     }
+
+    @Override
+    public void initData() {
+
+    }
+
     //校验注册按钮是否可点击
     public void checkRegister(){
         if(checkLoginName()&&checkPassword()&&checkSmsCode()){

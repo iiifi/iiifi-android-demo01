@@ -21,13 +21,14 @@ import com.iiifi.shop.activity.LoginActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.activity.RegisterActivity;
 import com.iiifi.shop.activity.SpeedActivity;
+import com.iiifi.shop.common.base.view.BaseActivityView;
 import com.iiifi.shop.common.util.ToolBarUtil;
 
 /**
  * Created by dmm on 2017/3/25.
  */
 
-public class SpeedView {
+public class SpeedView extends BaseActivityView<SpeedActivity>{
 
 
     private SpeedActivity speedActivity;
@@ -76,25 +77,22 @@ public class SpeedView {
     private ImageView ivWeixin;
 
 
-    //编译控件
-    public static void build(SpeedActivity speedActivity){
-        new SpeedView(speedActivity);
-    }
+
 
     public  SpeedView(SpeedActivity speedActivity){
-        this.speedActivity=speedActivity;
-        //初始化控件
-        initView();
-        //初始化事件
-        initEvent();
-        //初始化是否可点击
-        initClickEffect();
+        super(speedActivity);
     }
 
+    //编译控件
+    @Override
+    public void build(SpeedActivity speedActivity){
+        this.speedActivity=speedActivity;
+    }
 
     /**
      * 初始化控件
      */
+    @Override
     public  void initView(){
         //设置个性化ToolBar
         ToolBarUtil.buildToolBar(speedActivity,true,true,TOOL_TITLE,true,false,0);
@@ -118,6 +116,7 @@ public class SpeedView {
     /**
      * 初始化事件
      */
+    @Override
     public void initEvent(){
         //登录名输入框设置监听
         etLoginName.addTextChangedListener(new TextWatcher() {
@@ -231,10 +230,17 @@ public class SpeedView {
     }
 
     //初始化点击事件效果
+    @Override
     public void initClickEffect(){
         sendCode.setClickable(false);
         speedLoginBtn.setClickable(false);
     }
+
+    @Override
+    public void initData() {
+
+    }
+
     //校验注册按钮是否可点击
     public void checkSppedLogin(){
         if(checkLoginName()&&checkSmsCode()){

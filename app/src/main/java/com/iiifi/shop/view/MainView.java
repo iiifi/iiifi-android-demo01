@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.iiifi.shop.activity.MainActivity;
 import com.iiifi.shop.activity.R;
+import com.iiifi.shop.common.base.view.BaseActivityView;
 import com.iiifi.shop.common.util.HandlerUtil;
 import com.iiifi.shop.fragment.HomeFragment;
 import com.iiifi.shop.fragment.MessageFragment;
@@ -26,7 +27,7 @@ import java.util.List;
  * Created by dmm on 2017/3/31.
  */
 
-public class MainView {
+public class MainView extends BaseActivityView<MainActivity>{
 
     private FragmentTabHost mTabHost;
     private ViewPager mViewPager;
@@ -44,15 +45,16 @@ public class MainView {
             R.drawable.tab_find_content,
             R.drawable.tab_mine
     };
-    public static void build(MainActivity mainActivity){
-        new MainView(mainActivity);
-    }
+
     public MainView(MainActivity mainActivity){
-        this.mainActivity=mainActivity;
-        initView();
-        initEvent();
+        super(mainActivity);
     }
-    private void initView() {
+    @Override
+    public  void build(MainActivity mainActivity){
+        this.mainActivity=mainActivity;
+    }
+
+    public void initView() {
         //启动动画
         splashScreen = new SplashScreen(mainActivity);
         splashScreen.show(R.drawable.art_login_bg,
@@ -101,7 +103,7 @@ public class MainView {
         return view;
     }
 
-    private void initEvent() {
+    public void initEvent() {
         mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
@@ -123,5 +125,15 @@ public class MainView {
 
             }
         });
+    }
+
+    @Override
+    public void initClickEffect() {
+
+    }
+
+    @Override
+    public void initData() {
+
     }
 }
