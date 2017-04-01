@@ -1,9 +1,11 @@
 package com.iiifi.shop.view;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.iiifi.shop.activity.DynamicAddActivity;
+import com.iiifi.shop.activity.FriendsListActivity;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.view.BaseActivityView;
 import com.iiifi.shop.common.util.ToolBarUtil;
@@ -54,6 +56,12 @@ public class DynamicAddView extends BaseActivityView<DynamicAddActivity>{
             @Override
             public void onClick(View v) {
                 dynamicAddActivity.choicePhotoWrapper();
+            }
+        });
+        dynamicAite.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                dynamicAddActivity.startActivity(new Intent(dynamicAddActivity, FriendsListActivity.class));
             }
         });
     }

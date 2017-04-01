@@ -25,9 +25,12 @@
         <activity android:name=".SpeedActivity" />
         <activity android:name=".ResetPwdActivity" />
         <activity android:name=".CommonWebActivity" />
-        <activity android:name=".DynamicAddActivity"
+        <activity
+            android:name=".DynamicAddActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan|stateHidden">
-            ></activity>
+            >
+        </activity>
+        <activity android:name=".FriendsListActivity"></activity>
     </application>
 
 </manifest>
