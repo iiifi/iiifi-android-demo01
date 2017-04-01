@@ -37,7 +37,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.8"
                     android:gravity="center"
-                    android:textSize="17sp"
+                    android:textSize="18sp"
                     android:text="你微笑时很美"
                     android:textColor="@color/background_color"
                     />
