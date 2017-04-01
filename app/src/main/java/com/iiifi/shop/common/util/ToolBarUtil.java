@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.iiifi.shop.activity.R;
 
@@ -52,8 +53,10 @@ public class ToolBarUtil {
         activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         //设置toolbar
         Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
-        toolbar.setTitle(toolTitle);
+        toolbar.setTitle("");
         activity.setSupportActionBar(toolbar);
+        TextView  toolbarTitle= (TextView) activity.findViewById(R.id.toolbar_title);
+        toolbarTitle.setText(toolTitle);
         ActionBar actionBar= activity.getSupportActionBar();
         if(actionBar!=null){
             if (displayHome){
