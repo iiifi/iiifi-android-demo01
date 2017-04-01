@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -53,23 +54,6 @@ public class DynamicAddActivity extends AppCompatActivity implements EasyPermiss
         mPhotosSnpl.setDelegate(this);
         setTitle("添加朋友圈");
         new DynamicAddView(this);
-    }
-
-    public void onClick(View v) {
-        if (v.getId() == R.id.tv_moment_add_choice_photo) {
-            choicePhotoWrapper();
-        } else if (v.getId() == R.id.tv_moment_add_publish) {
-            String content = mContentEt.getText().toString().trim();
-            if (content.length() == 0 && mPhotosSnpl.getItemCount() == 0) {
-                Toast.makeText(this, "必须填写这一刻的想法或选择照片！", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            Intent intent = new Intent();
-            intent.putExtra(EXTRA_MOMENT, new Moment(mContentEt.getText().toString().trim(), mPhotosSnpl.getData()));
-            setResult(RESULT_OK, intent);
-            finish();
-        }
     }
 
     @Override
@@ -127,13 +111,38 @@ public class DynamicAddActivity extends AppCompatActivity implements EasyPermiss
             mPhotosSnpl.setData(BGAPhotoPickerPreviewActivity.getSelectedImages(data));
         }
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_dynamicadd, menu);
+        return true;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch(item.getItemId()){
+            case R.id.add_dynamic:
+                addDynamic();
+                break;
             case android.R.id.home:
                 finish();
                 return true;
+            default:
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+    //添加动态方法
+    public void addDynamic(){
+        String content = mContentEt.getText().toString().trim();
+        if (content.length() == 0 && mPhotosSnpl.getItemCount() == 0) {
+            Toast.makeText(DynamicAddActivity.this, "请填写这一刻的想法或选择照片！", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Intent intent = new Intent();
+        intent.putExtra(EXTRA_MOMENT, new Moment(mContentEt.getText().toString().trim(), mPhotosSnpl.getData()));
+        setResult(RESULT_OK, intent);
+        finish();
     }
 }

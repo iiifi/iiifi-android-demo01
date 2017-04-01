@@ -25,7 +25,9 @@
         <activity android:name=".SpeedActivity" />
         <activity android:name=".ResetPwdActivity" />
         <activity android:name=".CommonWebActivity" />
-        <activity android:name=".DynamicAddActivity"></activity>
+        <activity android:name=".DynamicAddActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan|stateHidden">
+            ></activity>
     </application>
 
 </manifest>

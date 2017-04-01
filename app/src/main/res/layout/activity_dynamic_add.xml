@@ -21,36 +21,26 @@
             >
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
-    <LinearLayout style="@style/MatchMatch.Vertical">
-        <LinearLayout
-            style="@style/MatchWrap.Horizontal"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/tv_moment_add_choice_photo"
-                style="@style/AutoWrapTv"
-                android:text="选择图片"/>
-
-            <TextView
-                android:id="@+id/tv_moment_add_publish"
-                style="@style/AutoWrapTv"
-                android:text="发布"/>
-        </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.88"
+        android:orientation="vertical"
+        >
         <EditText
             android:id="@+id/et_moment_add_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@android:color/transparent"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:gravity="start"
             android:hint="这一刻的想法..."
             android:lines="4"
-            android:textColor="#474747"
-            android:textColorHint="#C6C6C6"/>
+            android:textSize="16sp"
+            android:background="@null"
+            android:textCursorDrawable="@null"
+            />
 
         <cn.bingoogolapple.photopicker.widget.BGASortableNinePhotoLayout
             android:id="@+id/snpl_moment_add_photos"
@@ -69,5 +59,76 @@
             app:bga_snpl_plusDrawable="@mipmap/bga_pp_ic_plus"
             app:bga_snpl_plusEnable="true"
             app:bga_snpl_sortable="true"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.12"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/icon_address"/>
+            <TextView
+                android:id="@+id/send_addr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="2dp"
+                android:textSize="12sp"
+                android:textColor="#187fc3"
+                android:text="回龙观-云趣园一区"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:background="#f6f3f3"
+            >
+            <ImageView
+                android:id="@+id/dynamic_img"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_dynamic_img"/>
+            <ImageView
+                android:id="@+id/dynamic_aite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_ai_te"/>
+            <ImageView
+                android:id="@+id/dynamic_topic"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_topic"/>
+            <ImageView
+                android:id="@+id/dynamic_express"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_expression"/>
+            <ImageView
+                android:id="@+id/dynamic_url"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_http_url"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
