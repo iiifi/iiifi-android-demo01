@@ -120,12 +120,9 @@ public class DynamicAddActivity extends AppCompatActivity implements EasyPermiss
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_CHOOSE_PHOTO) {
-            if (true) {
-                mPhotosSnpl.setData(BGAPhotoPickerActivity.getSelectedImages(data));
-            } else {
                 mPhotosSnpl.addMoreData(BGAPhotoPickerActivity.getSelectedImages(data));
-            }
         } else if (requestCode == REQUEST_CODE_PHOTO_PREVIEW) {
             mPhotosSnpl.setData(BGAPhotoPickerPreviewActivity.getSelectedImages(data));
         }
