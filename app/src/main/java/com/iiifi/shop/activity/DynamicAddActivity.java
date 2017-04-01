@@ -52,7 +52,6 @@ public class DynamicAddActivity extends AppCompatActivity implements EasyPermiss
         mPhotosSnpl = (BGASortableNinePhotoLayout) findViewById(R.id.snpl_moment_add_photos);
         // 设置拖拽排序控件的代理
         mPhotosSnpl.setDelegate(this);
-        setTitle("添加朋友圈");
         new DynamicAddView(this);
     }
 
