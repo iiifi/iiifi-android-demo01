@@ -30,7 +30,7 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan|stateHidden">
             >
         </activity>
-        <activity android:name=".FriendsListActivity"></activity>
+        <activity android:name=".FriendsListActivity" />
     </application>
 
 </manifest>
