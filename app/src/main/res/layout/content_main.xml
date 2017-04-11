@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.iiifi.shop.activity.MainActivity"
+    tools:context="com.iiifi.shop.activity.com.iiifi.shop.modules.syscenter.activity.MainActivity"
     tools:showIn="@layout/activity_main">
     <android.support.v4.app.FragmentTabHost
         android:id="@android:id/tabhost"

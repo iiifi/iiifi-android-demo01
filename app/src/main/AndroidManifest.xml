@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.iiifi.shop.modules.syscenter.activity.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,17 +20,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".SpeedActivity" />
-        <activity android:name=".ResetPwdActivity" />
-        <activity android:name=".CommonWebActivity" />
+        <activity android:name="com.iiifi.shop.modules.user.activity.LoginActivity" />
+        <activity android:name="com.iiifi.shop.modules.user.activity.RegisterActivity" />
+        <activity android:name="com.iiifi.shop.modules.user.activity.SpeedActivity" />
+        <activity android:name="com.iiifi.shop.modules.user.activity.ResetPwdActivity" />
+        <activity android:name="com.iiifi.shop.modules.syscenter.activity.CommonWebActivity" />
         <activity
-            android:name=".DynamicAddActivity"
+            android:name="com.iiifi.shop.modules.dynamic.activity.DynamicAddActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan|stateHidden">
             >
         </activity>
-        <activity android:name=".FriendsListActivity" />
+        <activity android:name="com.iiifi.shop.modules.friends.activity.FriendsListActivity" />
     </application>
 
 </manifest>

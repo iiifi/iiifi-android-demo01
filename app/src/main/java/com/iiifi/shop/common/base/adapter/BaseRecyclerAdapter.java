@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.iiifi.shop.activity.R;
-import com.iiifi.shop.adapter.DynamicItemAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
