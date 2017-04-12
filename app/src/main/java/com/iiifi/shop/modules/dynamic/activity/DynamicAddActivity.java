@@ -17,6 +17,8 @@ import com.iiifi.shop.common.base.activity.BaseActivity;
 import com.iiifi.shop.common.util.ToolBarUtil;
 import com.iiifi.shop.modules.friends.activity.FriendsListActivity;
 import com.iiifi.shop.modules.syscenter.entity.Moment;
+import com.iiifi.shop.modules.user.activity.LoginActivity;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -177,6 +179,6 @@ public class DynamicAddActivity extends BaseActivity implements EasyPermissions.
 
     @OnClick(R.id.dynamic_aite)
     void openFriendsListActivity(){
-        openActivity(FriendsListActivity.class);
+        openActivity(LoginActivity.class);
     }
 }

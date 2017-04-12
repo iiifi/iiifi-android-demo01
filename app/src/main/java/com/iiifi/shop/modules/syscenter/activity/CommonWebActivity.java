@@ -13,7 +13,6 @@ import butterknife.ButterKnife;
 
 public class CommonWebActivity extends BaseActivity {
 
-    private CommonWebActivity commonWebActivity;
     private static final String TOOL_TITLE="用户协议";
     //内容URL
     private String loadUrl;
@@ -43,7 +42,7 @@ public class CommonWebActivity extends BaseActivity {
         ToolBarUtil.buildActivityToolBar(this,true,true,TOOL_TITLE,true,false,0);
         ButterKnife.bind(this);
         //加载webView
-        Intent intent=commonWebActivity.getIntent();
+        Intent intent=getIntent();
         loadUrl=intent.getStringExtra("loadUrl");
     }
 

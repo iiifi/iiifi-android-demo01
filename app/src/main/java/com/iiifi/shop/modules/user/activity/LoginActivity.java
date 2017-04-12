@@ -20,6 +20,11 @@ import com.iiifi.shop.common.base.activity.BaseActivity;
 import com.iiifi.shop.common.util.CheckUtils;
 import com.iiifi.shop.common.util.ToolBarUtil;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.OnTextChanged;
+
 public class LoginActivity extends BaseActivity {
 
     private static boolean IS_SEE=false;
@@ -30,40 +35,24 @@ public class LoginActivity extends BaseActivity {
     /**
      * 登录名
      */
-    private EditText etLoginName;
-    private ImageView loginNameDel;
+    @BindView(R.id.et_login_name)
+    EditText etLoginName;
+    @BindView(R.id.login_name_del)
+    ImageView loginNameDel;
     /**
      * 密码
      */
-    private  EditText etPassword;
-    private  ImageView passwordDel;
-    private  ImageView see_password;
+    @BindView(R.id.et_paswword)
+    EditText etPassword;
+    @BindView(R.id.password_del)
+    ImageView passwordDel;
+    @BindView(R.id.see_password)
+    ImageView see_password;
     /**
      * 登录
      */
-    private Button loginBtn;
-    /**
-     * 第三方登录
-     */
-    private ImageView ivQQ;
-
-    private ImageView ivSina;
-
-    private ImageView ivWeixin;
-
-    /**
-     * 忘记密码
-     */
-    private TextView resetPassword;
-    /**
-     * 快速登录
-     */
-    private TextView speedLogin;
-    /**
-     * 注册
-     */
-    private TextView register;
-
+    @BindView(R.id.login_btn)
+    Button loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,23 +74,7 @@ public class LoginActivity extends BaseActivity {
     public void initView() {
         //设置个性化ToolBar
         ToolBarUtil.buildActivityToolBar(this,true,true,TOOL_TITLE,true,false,0);
-        //登录
-        etLoginName= (EditText) findViewById(R.id.et_login_name);
-        loginNameDel= (ImageView) findViewById(R.id.login_name_del);
-        //密码
-        etPassword = (EditText) findViewById(R.id.et_paswword);
-        passwordDel = (ImageView) findViewById(R.id.password_del);
-        see_password = (ImageView) findViewById(R.id.see_password);
-        //登录按钮
-        loginBtn = (Button) findViewById(R.id.login_btn);
-        //第三方登录
-        ivQQ = (ImageView) findViewById(R.id.iv_qq);
-        ivSina = (ImageView) findViewById(R.id.iv_sina);
-        ivWeixin = (ImageView) findViewById(R.id.iv_weixin);
-        //忘记密码
-        resetPassword = (TextView) findViewById(R.id.reset_password);
-        speedLogin = (TextView) findViewById(R.id.speed_login);
-        register = (TextView) findViewById(R.id.register);
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -128,13 +101,6 @@ public class LoginActivity extends BaseActivity {
                 checkLogin();
             }
         });
-        //登录框数据清除
-        loginNameDel.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                etLoginName.setText("");
-            }
-        });
         //密码输入框设置监听
         etPassword.addTextChangedListener(new TextWatcher() {
             @Override
@@ -157,59 +123,6 @@ public class LoginActivity extends BaseActivity {
                 checkLogin();
             }
         });
-        //密码框数据清除
-        passwordDel.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                etPassword.setText("");
-            }
-        });
-        //切换密码是否可见
-        see_password.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                if (IS_SEE){
-                    see_password.setImageResource(R.mipmap.not_see);
-                    etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                    IS_SEE=false;
-                }else{
-                    see_password.setImageResource(R.mipmap.can_see);
-                    etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    IS_SEE=true;
-                }
-            }
-        });
-        loginBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(),"点击登录按钮",Toast.LENGTH_SHORT).show();
-            }
-        });
-        //跳转到注册页面
-        register.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-
-            }
-        });
-        //跳转到快速登录页面
-        speedLogin.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this, SpeedActivity.class);
-                startActivity(intent);
-            }
-        });
-        //跳转到重置密码界面
-        resetPassword.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this, ResetPwdActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -221,6 +134,50 @@ public class LoginActivity extends BaseActivity {
     public void initData() {
 
     }
+
+    //登录框数据清除
+    @OnClick(R.id.login_name_del)
+    public void cleanEtLoginName() {
+        etLoginName.setText("");
+    }
+    //密码框数据清除
+    @OnClick(R.id.password_del)
+    public void cleanEtPassword() {
+        etPassword.setText("");
+    }
+    //切换密码是否可见
+    @OnClick(R.id.see_password)
+    public void switchSee() {
+        if (IS_SEE){
+            see_password.setImageResource(R.mipmap.not_see);
+            etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            IS_SEE=false;
+        }else{
+            see_password.setImageResource(R.mipmap.can_see);
+            etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            IS_SEE=true;
+        }
+    }
+    @OnClick(R.id.login_btn)
+    public void login(View v) {
+        Toast.makeText(v.getContext(),"点击登录按钮",Toast.LENGTH_SHORT).show();
+    }
+    //跳转到注册页面
+    @OnClick(R.id.register)
+    public void openRegisterActivity() {
+        openActivity(RegisterActivity.class);
+    }
+    //跳转到快速登录页面
+    @OnClick(R.id.speed_login)
+    public void openSpeedActivity() {
+        openActivity(SpeedActivity.class);
+    }
+    //跳转到重置密码界面
+    @OnClick(R.id.reset_password)
+    public void openResetPwdActivity() {
+        openActivity(ResetPwdActivity.class);
+    }
+
     //校验注册按钮是否可点击
     public void checkLogin(){
         if(checkLoginName()&&checkPassword()){

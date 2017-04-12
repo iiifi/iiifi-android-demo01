@@ -206,7 +206,7 @@ public class SpeedActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(SpeedActivity.this, CommonWebActivity.class);
-                intent.putExtra("loadUrl","http://wap.edencity.com/wx/html/user/tashuoService.html");
+                intent.putExtra("loadUrl","http://wap.test.edencity.com/wx/html/user/tashuoService.html");
                 startActivity(intent);
             }
         });
