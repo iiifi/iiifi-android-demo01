@@ -39,4 +39,9 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.2.0'
     compile 'cn.bingoogolapple:bga-photopicker:1.2.3@aar'
     compile 'cn.bingoogolapple:bga-adapter:1.1.8@aar'
+
+    //控件绑定
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
 }

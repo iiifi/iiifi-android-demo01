@@ -81,7 +81,7 @@ public class DynamicFragment extends BaseFragment implements IOnSearchClickListe
     }
 
     @Override
-    public void initEvent() {
+    public void initListener() {
         search.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

@@ -15,9 +15,9 @@ public interface BaseView {
     public void initView();
 
     /**
-     * 初始化事件
+     * 初始化监听
      */
-    public void initEvent();
+    public void initListener();
 
     /**
      * 初始化点击效果

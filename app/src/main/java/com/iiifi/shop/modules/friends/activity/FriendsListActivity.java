@@ -37,7 +37,7 @@ public class FriendsListActivity extends BaseActivity {
     }
 
     @Override
-    public void initEvent() {
+    public void initListener() {
 
     }
 

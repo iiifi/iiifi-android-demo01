@@ -22,6 +22,10 @@ import com.wyt.searchbox.custom.IOnSearchClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by donglinghao on 2016-01-28.
  */
@@ -39,9 +43,6 @@ public class HomeFragment extends BaseFragment implements  IOnSearchClickListene
 
     //搜索框对象
     private SearchFragment searchFragment;
-
-    private View search;
-
 
     @Nullable
     @Override
@@ -64,20 +65,24 @@ public class HomeFragment extends BaseFragment implements  IOnSearchClickListene
     @Override
     public void initView() {
         ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),homeView,false,false,"",true,true,R.mipmap.icon_home,true,R.menu.menu_main);
+        ButterKnife.bind(this,homeView);
         //初始化搜索框弹出层
         searchFragment = SearchFragment.newInstance();
         searchFragment.setOnSearchClickListener(this);
-        search=homeView.findViewById(R.id.action_search);
     }
 
     @Override
-    public void initEvent() {
-        search.setOnClickListener(new View.OnClickListener(){
+    public void initListener() {
+      /*  search.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 searchFragment.show(getActivity().getSupportFragmentManager(), SearchFragment.TAG);
             }
-        });
+        });*/
+    }
+    @OnClick(R.id.action_search)
+    void search(){
+        searchFragment.show(getActivity().getSupportFragmentManager(), SearchFragment.TAG);
     }
 
     @Override

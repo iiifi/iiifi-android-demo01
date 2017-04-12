@@ -124,7 +124,7 @@ public class ResetPwdActivity extends BaseActivity {
     }
 
     @Override
-    public void initEvent() {
+    public void initListener() {
         //登录名输入框设置监听
         etLoginName.addTextChangedListener(new TextWatcher() {
             @Override

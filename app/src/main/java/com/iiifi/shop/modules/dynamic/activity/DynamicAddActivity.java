@@ -173,7 +173,7 @@ public class DynamicAddActivity extends BaseActivity implements EasyPermissions.
     }
 
     @Override
-    public void initEvent() {
+    public void initListener() {
         dynamicImg.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
