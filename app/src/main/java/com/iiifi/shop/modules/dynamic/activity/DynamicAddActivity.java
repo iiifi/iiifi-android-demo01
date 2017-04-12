@@ -20,6 +20,10 @@ import com.iiifi.shop.modules.syscenter.entity.Moment;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.bingoogolapple.photopicker.activity.BGAPhotoPickerActivity;
 import cn.bingoogolapple.photopicker.activity.BGAPhotoPickerPreviewActivity;
 import cn.bingoogolapple.photopicker.widget.BGASortableNinePhotoLayout;
@@ -35,42 +39,48 @@ public class DynamicAddActivity extends BaseActivity implements EasyPermissions.
 
     private static final String EXTRA_MOMENT = "EXTRA_MOMENT";
 
-
-    // ==================================== 测试图片选择器 END ====================================
     /**
      * 拖拽排序九宫格控件
      */
-    private BGASortableNinePhotoLayout mPhotosSnpl;
-    // ==================================== 测试拖拽排序九宫格图片控件 END ====================================
+    @BindView(R.id.snpl_moment_add_photos)
+    BGASortableNinePhotoLayout mPhotosSnpl;
 
-    private EditText mContentEt;
-
-
-    //相关组件
+    @BindView(R.id.et_moment_add_content)
+    EditText mContentEt;
 
     private static final String TOOL_TITLE="Hi，说点什么吧";
-
-    private ImageView dynamicImg;
-
-    private ImageView dynamicAite;
-
-    private ImageView dynamicTopic;
-
-    private ImageView dynamicExpress;
-
-    private ImageView dynamicUrl;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dynamic_add);
-        mContentEt = (EditText) findViewById(R.id.et_moment_add_content);
-        mPhotosSnpl = (BGASortableNinePhotoLayout) findViewById(R.id.snpl_moment_add_photos);
-        // 设置拖拽排序控件的代理
-        mPhotosSnpl.setDelegate(this);
         build();
     }
+
+
+    @Override
+    public void initView() {
+        ToolBarUtil.buildActivityToolBar(this,false,false,TOOL_TITLE,true,false,0);
+        ButterKnife.bind(this);
+        // 设置拖拽排序控件的代理
+        mPhotosSnpl.setDelegate(this);
+    }
+
+    @Override
+    public void initListener() {
+
+    }
+
+    @Override
+    public void initClickEffect() {
+
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
 
     @Override
     public void onClickAddNinePhotoItem(BGASortableNinePhotoLayout sortableNinePhotoLayout, View view, int position, ArrayList<String> models) {
@@ -88,6 +98,7 @@ public class DynamicAddActivity extends BaseActivity implements EasyPermissions.
     }
 
     @AfterPermissionGranted(REQUEST_CODE_PERMISSION_PHOTO_PICKER)
+    @OnClick(R.id.dynamic_img)
     public void choicePhotoWrapper() {
         String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
         if (EasyPermissions.hasPermissions(this, perms)) {
@@ -149,6 +160,8 @@ public class DynamicAddActivity extends BaseActivity implements EasyPermissions.
         }
         return super.onOptionsItemSelected(item);
     }
+
+
     //添加动态方法
     public void addDynamic(){
         String content = mContentEt.getText().toString().trim();
@@ -162,39 +175,8 @@ public class DynamicAddActivity extends BaseActivity implements EasyPermissions.
         finish();
     }
 
-    @Override
-    public void initView() {
-        ToolBarUtil.buildActivityToolBar(this,false,false,TOOL_TITLE,true,false,0);
-        dynamicImg= (ImageView) findViewById(R.id.dynamic_img);
-        dynamicAite= (ImageView) findViewById(R.id.dynamic_aite);
-        dynamicTopic= (ImageView) findViewById(R.id.dynamic_topic);
-        dynamicExpress= (ImageView) findViewById(R.id.dynamic_topic);
-        dynamicUrl= (ImageView) findViewById(R.id.dynamic_url);
-    }
-
-    @Override
-    public void initListener() {
-        dynamicImg.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                choicePhotoWrapper();
-            }
-        });
-        dynamicAite.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DynamicAddActivity.this, FriendsListActivity.class));
-            }
-        });
-    }
-
-    @Override
-    public void initClickEffect() {
-
-    }
-
-    @Override
-    public void initData() {
-
+    @OnClick(R.id.dynamic_aite)
+    void openFriendsListActivity(){
+        openActivity(FriendsListActivity.class);
     }
 }

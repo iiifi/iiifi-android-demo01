@@ -8,6 +8,9 @@ import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.activity.BaseActivity;
 import com.iiifi.shop.common.util.ToolBarUtil;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class CommonWebActivity extends BaseActivity {
 
     private CommonWebActivity commonWebActivity;
@@ -15,7 +18,8 @@ public class CommonWebActivity extends BaseActivity {
     //内容URL
     private String loadUrl;
     //webView
-    private WebView common_web;
+    @BindView(R.id.common_web)
+    WebView commonWeb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +39,10 @@ public class CommonWebActivity extends BaseActivity {
 
     @Override
     public void initView() {
-
         //设置个性化ToolBar
         ToolBarUtil.buildActivityToolBar(this,true,true,TOOL_TITLE,true,false,0);
+        ButterKnife.bind(this);
         //加载webView
-        common_web = (WebView) commonWebActivity.findViewById(R.id.common_web);
         Intent intent=commonWebActivity.getIntent();
         loadUrl=intent.getStringExtra("loadUrl");
     }
@@ -56,6 +59,6 @@ public class CommonWebActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        common_web.loadUrl(loadUrl);
+        commonWeb.loadUrl(loadUrl);
     }
 }

@@ -23,11 +23,17 @@ import com.iiifi.shop.widget.SplashScreen;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends BaseActivity {
 
+    @BindView(android.R.id.tabhost)
+    FragmentTabHost mTabHost;
 
-    private FragmentTabHost mTabHost;
-    private ViewPager mViewPager;
+    @BindView(R.id.view_pager)
+    ViewPager mViewPager;
+
     private List<Fragment> mFragmentList;
     private static Class mClass[] = {HomeFragment.class,DynamicFragment.class,MessageFragment.class,MineFragment.class};
     private static Fragment mFragment[] = {new HomeFragment(),new DynamicFragment(),new MessageFragment(),new MineFragment()};
@@ -61,10 +67,8 @@ public class MainActivity extends BaseActivity {
                 splashScreen.removeSplashScreen();
             }
         }, 3000);
-
-        //初始化 tabbar 布局
-        mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
-        mViewPager = (ViewPager)  findViewById(R.id.view_pager);
+        ButterKnife.bind(this);
+        //设置切换页数量
         mViewPager.setOffscreenPageLimit(4);
         mFragmentList = new ArrayList<Fragment>();
 

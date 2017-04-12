@@ -27,14 +27,17 @@ import com.wyt.searchbox.custom.IOnSearchClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by donglinghao on 2016-01-28.
  */
 public class DynamicFragment extends BaseFragment implements IOnSearchClickListener {
-
+    /**
+     * View
+     */
     private View dynamicView;
-
-
     /**
      * 适配器
      */
@@ -47,10 +50,6 @@ public class DynamicFragment extends BaseFragment implements IOnSearchClickListe
     //搜索框对象
     private SearchFragment searchFragment;
 
-    private View search;
-
-    private ImageView addDynamic;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,7 +61,7 @@ public class DynamicFragment extends BaseFragment implements IOnSearchClickListe
             parent.removeView(dynamicView);
         }
         //编译页面
-       build();
+        build();
         return dynamicView;
     }
     @Override
@@ -73,28 +72,31 @@ public class DynamicFragment extends BaseFragment implements IOnSearchClickListe
     @Override
     public void initView() {
         ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),dynamicView,false,false,"",false,false,R.mipmap.icon_home,true,R.menu.menu_main);
-        //初始化搜索框弹出层
-        searchFragment = SearchFragment.newInstance();
-        searchFragment.setOnSearchClickListener(this);
-        search=dynamicView.findViewById(R.id.action_search);
-        addDynamic= (ImageView) dynamicView.findViewById(R.id.add_dynamic);
+        //初始化页面绑定
+        ButterKnife.bind(this,dynamicView);
     }
 
     @Override
     public void initListener() {
-        search.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                searchFragment.show(getActivity().getSupportFragmentManager(), SearchFragment.TAG);
-            }
-        });
+        //初始化搜索框弹出层
+        searchFragment = SearchFragment.newInstance();
+        searchFragment.setOnSearchClickListener(this);
+    }
 
-        addDynamic.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                getActivity().startActivity(new Intent(getContext(), DynamicAddActivity.class));
-            }
-        });
+    /**
+     * 搜索
+     */
+    @OnClick(R.id.action_search)
+   void search(){
+        searchFragment.show(getActivity().getSupportFragmentManager(), SearchFragment.TAG);
+    }
+
+    /**
+     * 跳转到动态新增页面
+     */
+    @OnClick(R.id.add_dynamic)
+    void openAddDynamic(){
+        openActivity(DynamicAddActivity.class);
     }
 
     @Override
