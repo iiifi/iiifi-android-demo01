@@ -33,7 +33,7 @@ public class FriendsListActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        ToolBarUtil.buildActivityToolBar(this,false,false,TOOL_TITLE,true,false,0);
+        ToolBarUtil.buildActivityToolBar(this,TOOL_TITLE,true,false,0);
     }
 
     @Override

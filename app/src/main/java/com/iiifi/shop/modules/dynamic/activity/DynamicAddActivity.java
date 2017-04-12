@@ -62,7 +62,7 @@ public class DynamicAddActivity extends BaseActivity implements EasyPermissions.
 
     @Override
     public void initView() {
-        ToolBarUtil.buildActivityToolBar(this,false,false,TOOL_TITLE,true,false,0);
+        ToolBarUtil.buildActivityToolBar(this,TOOL_TITLE,true,false,0);
         ButterKnife.bind(this);
         // 设置拖拽排序控件的代理
         mPhotosSnpl.setDelegate(this);

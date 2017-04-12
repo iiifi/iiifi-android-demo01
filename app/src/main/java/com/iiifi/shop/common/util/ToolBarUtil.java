@@ -18,14 +18,8 @@ import com.iiifi.shop.activity.R;
 public class ToolBarUtil {
 
     //Fragment个性化设置toolbar
-    public static void buildToolBar(AppCompatActivity activity, View view, boolean statusBar, boolean navigationBar,
-                                    String toolTitle, boolean displayHome, boolean isIcon , int homeIcon,boolean isMenu,int menu){
-        //透明状态栏
-        if(statusBar)
-            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        //透明导航栏
-        if (navigationBar)
-            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+    public static void buildToolBar(AppCompatActivity activity, View view,
+        String toolTitle, boolean displayHome, boolean isIcon , int homeIcon,boolean isMenu,int menu){
         //设置toolbar
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         toolbar.setTitle(toolTitle);
@@ -43,20 +37,12 @@ public class ToolBarUtil {
          }
     }
     //Activity个性化设置toolbar
-    public static void buildActivityToolBar(AppCompatActivity activity, boolean statusBar, boolean navigationBar,
-                             String toolTitle, boolean displayHome,boolean isIcon ,int homeIcon){
-        //透明状态栏
-        if(statusBar)
-        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        //透明导航栏
-        if (navigationBar)
-        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+    public static void buildActivityToolBar(AppCompatActivity activity,
+        String toolTitle, boolean displayHome,boolean isIcon ,int homeIcon){
         //设置toolbar
         Toolbar toolbar = (Toolbar) activity.findViewById(R.id.toolbar);
-        toolbar.setTitle("");
+        toolbar.setTitle(toolTitle);
         activity.setSupportActionBar(toolbar);
-        TextView  toolbarTitle= (TextView) activity.findViewById(R.id.toolbar_title);
-        toolbarTitle.setText(toolTitle);
         ActionBar actionBar= activity.getSupportActionBar();
         if(actionBar!=null){
             if (displayHome){

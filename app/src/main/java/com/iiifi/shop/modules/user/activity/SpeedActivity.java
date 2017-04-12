@@ -56,7 +56,8 @@ public class SpeedActivity extends BaseActivity {
     /**
      * 快速登录
      */
-    private Button speedLoginBtn;
+    @BindView(R.id.speed_login)
+    Button speedLoginBtn;
 
 
     @Override
@@ -80,7 +81,7 @@ public class SpeedActivity extends BaseActivity {
     @Override
     public void initView() {
         //设置个性化ToolBar
-        ToolBarUtil.buildActivityToolBar(this,true,true,TOOL_TITLE,true,false,0);
+        ToolBarUtil.buildActivityToolBar(this,TOOL_TITLE,true,false,0);
         ButterKnife.bind(this);
     }
 

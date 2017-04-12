@@ -71,7 +71,7 @@ public class DynamicFragment extends BaseFragment implements IOnSearchClickListe
 
     @Override
     public void initView() {
-        ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),dynamicView,false,false,"",false,false,R.mipmap.icon_home,true,R.menu.menu_main);
+        ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),dynamicView,"",false,false,R.mipmap.icon_home,true,R.menu.menu_main);
         //初始化页面绑定
         ButterKnife.bind(this,dynamicView);
     }

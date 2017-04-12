@@ -60,7 +60,7 @@ public class HomeFragment extends BaseFragment implements  IOnSearchClickListene
 
     @Override
     public void initView() {
-        ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),homeView,false,false,"",true,true,R.mipmap.icon_home,true,R.menu.menu_main);
+        ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),homeView,"",true,true,R.mipmap.icon_home,true,R.menu.menu_main);
         ButterKnife.bind(this,homeView);
     }
 

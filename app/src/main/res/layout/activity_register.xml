@@ -9,16 +9,6 @@
     >
     <!--toolBar-->
     <include layout="@layout/tool_bar" />
-    <!--项目名称-->
-    <TextView
-        android:id="@+id/company_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="55dp"
-        android:text="她说"
-        android:textSize="35dp"
-        />
     <!--输入登录名-->
     <LinearLayout
         android:layout_gravity="center"
@@ -27,6 +17,7 @@
         android:background="@mipmap/login_input_box"
         android:gravity="center"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="100dp"
         android:padding="12dp"
         >
         <ImageView
