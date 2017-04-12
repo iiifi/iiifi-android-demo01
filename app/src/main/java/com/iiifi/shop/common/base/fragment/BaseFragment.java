@@ -14,7 +14,7 @@ public  abstract class BaseFragment extends Fragment implements BaseView{
 
     public void build(){
         initView();
-        initEvent();
+        initListener();
         initClickEffect();
         initData();
     }

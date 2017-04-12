@@ -91,7 +91,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    public void initEvent() {
+    public void initListener() {
         mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {

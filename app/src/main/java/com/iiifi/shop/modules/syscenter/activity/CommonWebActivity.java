@@ -45,7 +45,7 @@ public class CommonWebActivity extends BaseActivity {
     }
 
     @Override
-    public void initEvent() {
+    public void initListener() {
 
     }
 
