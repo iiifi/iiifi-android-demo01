@@ -1,5 +1,6 @@
 package com.iiifi.shop.common.base.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -23,4 +24,15 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         initData();
     }
 
+    protected void openActivity(Class<? extends BaseActivity> toActivity) {
+        openActivity(toActivity, null);
+    }
+
+    protected void openActivity(Class<? extends BaseActivity> toActivity, Bundle parameter) {
+        Intent intent = new Intent(this, toActivity);
+        if (parameter != null) {
+            intent.putExtras(parameter);
+        }
+        startActivity(intent);
+    }
 }

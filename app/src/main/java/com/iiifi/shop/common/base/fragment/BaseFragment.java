@@ -1,9 +1,9 @@
 package com.iiifi.shop.common.base.fragment;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.annotation.IdRes;
-import android.view.View;
-
+import com.iiifi.shop.common.base.activity.BaseActivity;
 import com.iiifi.shop.common.base.view.BaseView;
 
 /**
@@ -19,4 +19,15 @@ public  abstract class BaseFragment extends Fragment implements BaseView{
         initData();
     }
 
+    protected void openActivity(Class<? extends BaseActivity> toActivity) {
+        openActivity(toActivity, null);
+    }
+
+    protected void openActivity(Class<? extends BaseActivity> toActivity, Bundle parameters) {
+        Intent intent = new Intent(getActivity(), toActivity);
+        if (parameters != null) {
+            intent.putExtras(parameters);
+        }
+        startActivity(intent);
+    }
 }
