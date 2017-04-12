@@ -178,7 +178,7 @@ public class DynamicAddActivity extends BaseActivity implements EasyPermissions.
     }
 
     @OnClick(R.id.dynamic_aite)
-    void openFriendsListActivity(){
+    public void openFriendsListActivity(){
         openActivity(FriendsListActivity.class);
     }
 }

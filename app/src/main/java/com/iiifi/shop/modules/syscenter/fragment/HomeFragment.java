@@ -71,7 +71,7 @@ public class HomeFragment extends BaseFragment implements  IOnSearchClickListene
         searchFragment.setOnSearchClickListener(this);
     }
     @OnClick(R.id.action_search)
-    void search(){
+    public void search(){
         searchFragment.show(getActivity().getSupportFragmentManager(), SearchFragment.TAG);
     }
 

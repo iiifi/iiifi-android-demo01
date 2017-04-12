@@ -87,7 +87,7 @@ public class DynamicFragment extends BaseFragment implements IOnSearchClickListe
      * 搜索
      */
     @OnClick(R.id.action_search)
-   void search(){
+    public void search(){
         searchFragment.show(getActivity().getSupportFragmentManager(), SearchFragment.TAG);
     }
 
@@ -95,7 +95,7 @@ public class DynamicFragment extends BaseFragment implements IOnSearchClickListe
      * 跳转到动态新增页面
      */
     @OnClick(R.id.add_dynamic)
-    void openAddDynamic(){
+    public void openAddDynamic(){
         openActivity(DynamicAddActivity.class);
     }
 
