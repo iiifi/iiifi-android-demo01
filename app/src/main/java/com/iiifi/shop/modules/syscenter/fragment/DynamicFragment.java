@@ -20,6 +20,7 @@ import com.iiifi.shop.constant.IiifiConstant;
 import com.iiifi.shop.modules.dynamic.activity.DynamicAddActivity;
 import com.iiifi.shop.modules.dynamic.adapter.DynamicItemAdapter;
 import com.iiifi.shop.modules.dynamic.entity.Dynamic;
+import com.iiifi.shop.modules.user.activity.LoginActivity;
 import com.wyt.searchbox.SearchFragment;
 import com.wyt.searchbox.custom.IOnSearchClickListener;
 

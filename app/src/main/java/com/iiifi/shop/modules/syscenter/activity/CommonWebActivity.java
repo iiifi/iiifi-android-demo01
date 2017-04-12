@@ -37,7 +37,7 @@ public class CommonWebActivity extends BaseActivity {
     public void initView() {
 
         //设置个性化ToolBar
-        ToolBarUtil.buildActivityToolBar(commonWebActivity,true,true,TOOL_TITLE,true,false,0);
+        ToolBarUtil.buildActivityToolBar(this,true,true,TOOL_TITLE,true,false,0);
         //加载webView
         common_web = (WebView) commonWebActivity.findViewById(R.id.common_web);
         Intent intent=commonWebActivity.getIntent();

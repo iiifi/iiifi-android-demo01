@@ -5,15 +5,19 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.iiifi.shop.activity.R;
-import com.iiifi.shop.modules.friends.view.FriendsListView;
+import com.iiifi.shop.common.base.activity.BaseActivity;
+import com.iiifi.shop.common.util.ToolBarUtil;
 
-public class FriendsListActivity extends AppCompatActivity {
+public class FriendsListActivity extends BaseActivity {
+
+
+    private static final String TOOL_TITLE="联系人";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends_list);
-        new FriendsListView(this);
+        build();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -25,5 +29,25 @@ public class FriendsListActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void initView() {
+        ToolBarUtil.buildActivityToolBar(this,false,false,TOOL_TITLE,true,false,0);
+    }
+
+    @Override
+    public void initEvent() {
+
+    }
+
+    @Override
+    public void initClickEffect() {
+
+    }
+
+    @Override
+    public void initData() {
+
     }
 }
