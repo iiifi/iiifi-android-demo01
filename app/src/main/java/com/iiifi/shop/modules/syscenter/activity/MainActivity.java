@@ -5,17 +5,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.activity.BaseActivity;
-import com.iiifi.shop.common.base.view.BaseActivityView;
 import com.iiifi.shop.common.util.HandlerUtil;
 import com.iiifi.shop.modules.syscenter.fragment.DynamicFragment;
 import com.iiifi.shop.modules.syscenter.fragment.HomeFragment;
