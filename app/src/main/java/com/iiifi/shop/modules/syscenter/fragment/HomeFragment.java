@@ -1,7 +1,6 @@
 package com.iiifi.shop.modules.syscenter.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.fragment.BaseFragment;
 import com.iiifi.shop.common.util.ToolBarUtil;
@@ -18,11 +16,8 @@ import com.iiifi.shop.modules.dynamic.adapter.DynamicItemAdapter;
 import com.iiifi.shop.modules.dynamic.entity.Dynamic;
 import com.wyt.searchbox.SearchFragment;
 import com.wyt.searchbox.custom.IOnSearchClickListener;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -30,7 +25,9 @@ import butterknife.OnClick;
  * Created by donglinghao on 2016-01-28.
  */
 public class HomeFragment extends BaseFragment implements  IOnSearchClickListener {
-
+    /**
+     * View
+     */
     private View homeView;
     /**
      * 适配器
@@ -44,7 +41,6 @@ public class HomeFragment extends BaseFragment implements  IOnSearchClickListene
     //搜索框对象
     private SearchFragment searchFragment;
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (homeView == null){
