@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.activity.BaseActivity;
+import com.iiifi.shop.common.util.CheckUtils;
 import com.iiifi.shop.common.util.ToolBarUtil;
 
 public class LoginActivity extends BaseActivity {
@@ -25,12 +26,6 @@ public class LoginActivity extends BaseActivity {
 
 
     private static final String TOOL_TITLE="登录";
-
-    //手机号码正则表达式
-    private static final String phoneRegex = "^1(3|4|5|7|8)\\d{9}";
-
-    //密码的正则表达式
-    private static final String passwordRegex = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$";
 
     /**
      * 登录名
@@ -239,11 +234,11 @@ public class LoginActivity extends BaseActivity {
     //校验登录名是否合法
     public  boolean checkLoginName(){
         String loginName=etLoginName.getText().toString().trim();
-        return (!TextUtils.isEmpty(loginName))&&loginName.matches(phoneRegex);
+        return CheckUtils.checkPhone(loginName);
     }
     //校验密码是否合法
     public boolean checkPassword(){
         String password=etPassword.getText().toString().trim();
-        return (!TextUtils.isEmpty(password))&&password.matches(passwordRegex);
+        return CheckUtils.checkPassword(password);
     }
 }

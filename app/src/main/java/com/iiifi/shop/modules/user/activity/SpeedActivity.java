@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.activity.BaseActivity;
+import com.iiifi.shop.common.util.CheckUtils;
 import com.iiifi.shop.common.util.ToolBarUtil;
 import com.iiifi.shop.modules.syscenter.activity.CommonWebActivity;
 
@@ -26,12 +27,6 @@ public class SpeedActivity extends BaseActivity {
      * title
      */
     private static final String TOOL_TITLE="快速登录";
-
-    //手机号码正则表达式
-    private static final String phoneRegex = "^1(3|4|5|7|8)\\d{9}";
-
-    //验证码正则表达式
-    private static final String smsCodeRegex = "^\\d{4}";
 
     //发送验证码定时器
     private VerifyCodeTimer timer;
@@ -241,12 +236,12 @@ public class SpeedActivity extends BaseActivity {
     //校验登录名是否合法
     public  boolean checkLoginName(){
         String loginName=etLoginName.getText().toString().trim();
-        return (!TextUtils.isEmpty(loginName))&&loginName.matches(phoneRegex);
+        return CheckUtils.checkPhone(loginName);
     }
     //校验验证码是否合法
     public boolean checkSmsCode(){
         String smsCode=etSmsCode.getText().toString().trim();
-        return (!TextUtils.isEmpty(smsCode))&&smsCode.matches(smsCodeRegex);
+        return CheckUtils.checkPassword(smsCode);
     }
     //判断定时器是否被创建
     private boolean isCreate() {
