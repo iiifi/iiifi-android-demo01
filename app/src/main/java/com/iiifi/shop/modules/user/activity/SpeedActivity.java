@@ -21,6 +21,10 @@ import com.iiifi.shop.common.util.CheckUtils;
 import com.iiifi.shop.common.util.ToolBarUtil;
 import com.iiifi.shop.modules.syscenter.activity.CommonWebActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class SpeedActivity extends BaseActivity {
 
     /**
@@ -30,35 +34,30 @@ public class SpeedActivity extends BaseActivity {
 
     //发送验证码定时器
     private VerifyCodeTimer timer;
+
     /**
      * 登录名
      */
-    private EditText etLoginName;
-    private ImageView loginNameDel;
+    @BindView(R.id.et_login_name)
+    EditText etLoginName;
+    @BindView(R.id.login_name_del)
+    ImageView loginNameDel;
 
     /**
      * 验证码
      */
-    private EditText etSmsCode;
-    private ImageView smsCodeDel;
-    private TextView sendCode;
+    @BindView(R.id.et_sms_code)
+    EditText etSmsCode;
+    @BindView(R.id.sms_code_del)
+    ImageView smsCodeDel;
+    @BindView(R.id.send_code)
+    TextView sendCode;
 
     /**
-     * 注册
+     * 快速登录
      */
     private Button speedLoginBtn;
-    /**
-     * 用户协议
-     */
-    private TextView userProtocol;
-    /**
-     * 第三方登录
-     */
-    private ImageView ivQQ;
 
-    private ImageView ivSina;
-
-    private ImageView ivWeixin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,21 +81,7 @@ public class SpeedActivity extends BaseActivity {
     public void initView() {
         //设置个性化ToolBar
         ToolBarUtil.buildActivityToolBar(this,true,true,TOOL_TITLE,true,false,0);
-        //登录名
-        etLoginName= (EditText) findViewById(R.id.et_login_name);
-        loginNameDel= (ImageView) findViewById(R.id.login_name_del);
-        //验证码
-        etSmsCode = (EditText) findViewById(R.id.et_sms_code);
-        smsCodeDel = (ImageView) findViewById(R.id.sms_code_del);
-        sendCode = (TextView) findViewById(R.id.send_code);
-        //注册按钮
-        speedLoginBtn = (Button) findViewById(R.id.speed_login);
-        //用户协议
-        userProtocol = (TextView) findViewById(R.id.user_protocol);
-        //第三方登录
-        ivQQ = (ImageView) findViewById(R.id.iv_qq);
-        ivSina = (ImageView) findViewById(R.id.iv_sina);
-        ivWeixin = (ImageView) findViewById(R.id.iv_weixin);
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -135,31 +120,6 @@ public class SpeedActivity extends BaseActivity {
                 checkSppedLogin();
             }
         });
-        //登录框数据清除
-        loginNameDel.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                etLoginName.setText("");
-            }
-        });
-
-        //发送验证码事件
-        sendCode.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                //判断登录名是否合法
-                if(!checkLoginName()){
-                    sendCode.setClickable(false);
-                }else{
-                    etLoginName.clearFocus();
-                    etSmsCode.requestFocus();
-                    //发送验证码处理事件
-                    sendCode.setClickable(false);
-                    timer = new VerifyCodeTimer(6000, 1000);
-                    timer.start();
-                }
-            }
-        });
 
         //验证码输入框设置监听
         etSmsCode.addTextChangedListener(new TextWatcher() {
@@ -183,33 +143,6 @@ public class SpeedActivity extends BaseActivity {
                 checkSppedLogin();
             }
         });
-        //验证码框数据清除
-        smsCodeDel.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                etSmsCode.setText("");
-            }
-        });
-
-        /**
-         * 快速登录
-         */
-        speedLoginBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(),"点击注册按钮",Toast.LENGTH_SHORT).show();
-            }
-        });
-        //用户协议
-        //用户协议
-        userProtocol.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(SpeedActivity.this, CommonWebActivity.class);
-                intent.putExtra("loadUrl","http://wap.test.edencity.com/wx/html/user/tashuoService.html");
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -221,6 +154,47 @@ public class SpeedActivity extends BaseActivity {
     @Override
     public void initData() {
 
+    }
+
+    //登录框数据清除
+    @OnClick(R.id.login_name_del)
+    public void cleanLoginName() {
+        etLoginName.setText("");
+    }
+
+    //发送验证码事件
+    @OnClick(R.id.send_code)
+    public void sendCode() {
+        //判断登录名是否合法
+        if(!checkLoginName()){
+            sendCode.setClickable(false);
+        }else{
+            etLoginName.clearFocus();
+            etSmsCode.requestFocus();
+            //发送验证码处理事件
+            sendCode.setClickable(false);
+            timer = new VerifyCodeTimer(6000, 1000);
+            timer.start();
+        }
+    }
+
+    //验证码框数据清除
+    @OnClick(R.id.sms_code_del)
+    public void cleanSmsCode() {
+        etSmsCode.setText("");
+    }
+
+    //用户协议
+    @OnClick(R.id.user_protocol)
+    public void openUserProtocol() {
+        Bundle bundle=new Bundle();
+        bundle.putString("loadUrl","http://wap.test.edencity.com/wx/html/user/tashuoService.html");
+        openActivity(CommonWebActivity.class,bundle);
+    }
+    //快速登录按钮
+    @OnClick(R.id.speed_login)
+    public void speedLogin(View v) {
+        Toast.makeText(v.getContext(),"点击快速登录按钮",Toast.LENGTH_SHORT).show();
     }
 
     //校验注册按钮是否可点击
