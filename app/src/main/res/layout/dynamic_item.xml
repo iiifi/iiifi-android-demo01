@@ -90,30 +90,27 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="105dp"
-                android:layout_height="105dp"
+            <com.iiifi.shop.widget.SquareImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
                 android:scaleType="centerCrop"
-                android:fitsSystemWindows="true"
-                app:layout_collapseMode="parallax"
                 android:src="@mipmap/content_1"
                 />
-            <ImageView
-                android:layout_width="105dp"
-                android:layout_height="105dp"
+            <com.iiifi.shop.widget.SquareImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_weight="0.33"
                 android:scaleType="centerCrop"
-                android:fitsSystemWindows="true"
-                app:layout_collapseMode="parallax"
                 android:src="@mipmap/content_2"
                 />
-            <ImageView
-                android:layout_width="105dp"
-                android:layout_height="105dp"
+            <com.iiifi.shop.widget.SquareImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
                 android:scaleType="centerCrop"
-                android:fitsSystemWindows="true"
-                app:layout_collapseMode="parallax"
                 android:src="@mipmap/content_3"
                 />
         </LinearLayout>
