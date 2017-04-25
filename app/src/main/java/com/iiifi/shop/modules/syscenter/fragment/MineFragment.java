@@ -3,12 +3,14 @@ package com.iiifi.shop.modules.syscenter.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.fragment.BaseFragment;
+import com.iiifi.shop.common.util.ToolBarUtil;
 import com.iiifi.shop.modules.user.activity.LoginActivity;
 
 import butterknife.ButterKnife;
@@ -18,6 +20,8 @@ import butterknife.OnClick;
  * Created by donglinghao on 2016-01-28.
  */
 public class MineFragment extends BaseFragment {
+
+    private static final String TOOL_TITLE="个人中心";
 
     private View mRootView;
 
@@ -35,10 +39,10 @@ public class MineFragment extends BaseFragment {
         build();
         return mRootView;
     }
-
     @Override
     public void initView() {
         ButterKnife.bind(this,mRootView);
+        ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),mRootView,TOOL_TITLE,true,true,R.mipmap.icon_setting,true,R.menu.menu_mine);
     }
 
     @Override
@@ -54,9 +58,5 @@ public class MineFragment extends BaseFragment {
     @Override
     public void initData() {
 
-    }
-    @OnClick(R.id.login)
-    public void login(){
-        openActivity(LoginActivity.class);
     }
 }
