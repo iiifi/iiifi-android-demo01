@@ -13,10 +13,9 @@ import android.widget.TextView;
 
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.activity.BaseActivity;
-import com.iiifi.shop.common.util.HandlerUtil;
 import com.iiifi.shop.modules.syscenter.fragment.DynamicFragment;
+import com.iiifi.shop.modules.syscenter.fragment.FindFragment;
 import com.iiifi.shop.modules.syscenter.fragment.HomeFragment;
-import com.iiifi.shop.modules.syscenter.fragment.MessageFragment;
 import com.iiifi.shop.modules.syscenter.fragment.MineFragment;
 import com.iiifi.shop.widget.SplashScreen;
 
@@ -35,8 +34,8 @@ public class MainActivity extends BaseActivity {
     ViewPager mViewPager;
 
     private List<Fragment> mFragmentList;
-    private static Class mClass[] = {HomeFragment.class,DynamicFragment.class,MessageFragment.class,MineFragment.class};
-    private static Fragment mFragment[] = {new HomeFragment(),new DynamicFragment(),new MessageFragment(),new MineFragment()};
+    private static Class mClass[] = {HomeFragment.class,DynamicFragment.class,FindFragment.class,MineFragment.class};
+    private static Fragment mFragment[] = {new HomeFragment(),new DynamicFragment(),new FindFragment(),new MineFragment()};
     private static String mTitles[] = {"她说","动态","发现","我的"};
 
     private SplashScreen splashScreen;//动画

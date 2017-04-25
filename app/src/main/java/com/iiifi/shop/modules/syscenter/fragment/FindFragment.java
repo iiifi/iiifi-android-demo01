@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Created by donglinghao on 2016-01-28.
  */
-public class MessageFragment extends Fragment {
+public class FindFragment extends Fragment {
 
     private View mRootView;
     private List<Dynamic> dynamicList;
@@ -33,8 +33,8 @@ public class MessageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (mRootView == null){
-            Log.e("666","MessageFragment");
-            mRootView = inflater.inflate(R.layout.message_fragment,container,false);
+            Log.e("666","FindFragment");
+            mRootView = inflater.inflate(R.layout.find_fragment,container,false);
         }
         Toolbar toolbar= (Toolbar) mRootView.findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
