@@ -2,10 +2,13 @@ package com.iiifi.shop.modules.syscenter.fragment;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.fragment.BaseFragment;
 import com.iiifi.shop.common.util.GlideImageLoader;
@@ -13,15 +16,17 @@ import com.iiifi.shop.common.util.ToolBarUtil;
 import com.iiifi.shop.constant.IiifiConstant;
 import com.iiifi.shop.modules.dynamic.adapter.DynamicItemAdapter;
 import com.iiifi.shop.modules.dynamic.entity.Dynamic;
+import com.iiifi.shop.modules.story.adapter.StoryItemAdapter;
+import com.iiifi.shop.modules.story.entity.Story;
 import com.wyt.searchbox.SearchFragment;
 import com.wyt.searchbox.custom.IOnSearchClickListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
-import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -39,11 +44,11 @@ public class HomeFragment extends BaseFragment implements  IOnSearchClickListene
     /**
      * 适配器
      */
-    private DynamicItemAdapter adapter;
+    private StoryItemAdapter adapter;
     /**
      * 数据对象
      */
-    public List<Dynamic> dynamicList;
+    public List<Story> storyList;
 
     //搜索框对象
     private SearchFragment searchFragment;
@@ -112,12 +117,12 @@ public class HomeFragment extends BaseFragment implements  IOnSearchClickListene
 
     @Override
     public void initData() {
-        /*initDynamicList();
+        initStoryList();
         RecyclerView recyclerView= (RecyclerView) homeView.findViewById(R.id.recycler_view);
         GridLayoutManager layoutManager=new GridLayoutManager(getActivity(),1);
         recyclerView.setLayoutManager(layoutManager);
-        adapter=new DynamicItemAdapter(R.layout.dynamic_item,dynamicList);
-        recyclerView.setAdapter(adapter);*/
+        adapter=new StoryItemAdapter(R.layout.long_story_item,storyList);
+        recyclerView.setAdapter(adapter);
     }
     public void init(){
         images.add("http://edencity-oss-product.oss-cn-qingdao.aliyuncs.com/platform/4A5B9AD5D128FB4A5775716C424F1208.jpg");
@@ -128,24 +133,16 @@ public class HomeFragment extends BaseFragment implements  IOnSearchClickListene
         titles.add("恭贺新年");
 
     }
-    public void initDynamicList(){
-        dynamicList=new ArrayList<Dynamic>();
-        Dynamic dynamic=new Dynamic();
-        dynamic.setId("1");
-        dynamic.setUserId("11");
-        dynamic.setNickName("你微笑时很美");
-        dynamic.setPhoto("https://pic1.zhimg.com/v2-1f7a10915ae4f50613f6ba5cada4230c_xl.jpg");
-        dynamic.setContent("     敬启者：紫衣侯竞死，吾实伤感，天下虽大，对手难寻，此人一死，吾更寂寞，吾至今方知求胜虽难，求败更不易。然七年之约，不可不赴，来年花朝，当赴中土，但愿东海之滨，有人能以三尺剑，赐我一败");
-        dynamic.setCreateTime("15小时前");
-        dynamic.setClientType("来自小米mix尊享版");
-        dynamic.setSendAddr("望京soho-T2-C1507");
-        dynamic.setCollectionNum(21024);
-        dynamic.setStarNum(20485);
-        dynamic.setCommentNum(269428);
-        dynamic.setIsCollection(IiifiConstant.TRUE);
-        dynamic.setIsStar(IiifiConstant.TRUE);
+    public void initStoryList(){
+        storyList=new ArrayList<Story>();
+        Story story=new Story();
+        story.setStory("      叶先生，说句真心话，我心里有过你。我把这话告诉你也没什么。喜欢人不犯法，可我也只能到喜欢为止了。这些话我没对谁说过，不知道为什么就都说出来了...");
+        story.setLable("#来年花朝     #青春如诗");
+        story.setCommonNum("19万评论");
+        story.setCreateTime("7分钟前");
+        story.setStoryImg("http://img4.imgtn.bdimg.com/it/u=1175690456,3572313126&fm=23&gp=0.jpg");
         for(int i=0;i<10;i++){
-            dynamicList.add(dynamic);
+            storyList.add(story);
         }
     }
 }
