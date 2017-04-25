@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initView() {
         //启动动画
-        splashScreen = new SplashScreen(MainActivity.this);
+       /* splashScreen = new SplashScreen(MainActivity.this);
         splashScreen.show(R.drawable.art_login_bg,
                 SplashScreen.FADE_OUT);
         HandlerUtil.getInstance(MainActivity.this).postDelayed(new Runnable() {
@@ -66,7 +66,7 @@ public class MainActivity extends BaseActivity {
             public void run() {
                 splashScreen.removeSplashScreen();
             }
-        }, 3000);
+        }, 3000);*/
         ButterKnife.bind(this);
         //设置切换页数量
         mViewPager.setOffscreenPageLimit(4);
