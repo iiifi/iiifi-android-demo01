@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.7"
+            android:layout_weight="0.65"
             android:orientation="vertical"
             >
             <TextView
@@ -41,7 +41,7 @@
                     android:id="@+id/lable"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.4"
                     android:textColor="#187fc3"
                     android:textSize="12sp"
                     android:text="#来年花朝     #青春如诗"
@@ -50,7 +50,7 @@
                     android:id="@+id/comment_num"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.2"
+                    android:layout_weight="0.3"
                     android:textColor="#187fc3"
                     android:textSize="12sp"
                     android:text="19万评论"

@@ -136,8 +136,8 @@ public class HomeFragment extends BaseFragment implements  IOnSearchClickListene
     public void initStoryList(){
         storyList=new ArrayList<Story>();
         Story story=new Story();
-        story.setStory("      叶先生，说句真心话，我心里有过你。我把这话告诉你也没什么。喜欢人不犯法，可我也只能到喜欢为止了。这些话我没对谁说过，不知道为什么就都说出来了...");
-        story.setLable("#来年花朝     #青春如诗");
+        story.setStory("      叶先生，说句真心话，我心里有过你。我把这话告诉你也没什么。喜欢人不犯法，可我也只能到喜欢为止了...");
+        story.setLable("#青春如诗");
         story.setCommonNum("19万评论");
         story.setCreateTime("7分钟前");
         story.setStoryImg("http://img4.imgtn.bdimg.com/it/u=1175690456,3572313126&fm=23&gp=0.jpg");
