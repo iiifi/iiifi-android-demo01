@@ -21,7 +21,7 @@ import butterknife.OnClick;
  */
 public class MineFragment extends BaseFragment {
 
-    private static final String TOOL_TITLE="个人中心";
+    private static final String TOOL_TITLE="我的";
 
     private View mRootView;
 
