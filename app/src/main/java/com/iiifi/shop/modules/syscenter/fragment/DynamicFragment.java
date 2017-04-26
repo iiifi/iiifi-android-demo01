@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.fragment.BaseFragment;
 import com.iiifi.shop.common.util.ToolBarUtil;
+import com.iiifi.shop.common.util.ViewHeightUtils;
 import com.iiifi.shop.constant.IiifiConstant;
 import com.iiifi.shop.modules.dynamic.activity.DynamicAddActivity;
 import com.iiifi.shop.modules.dynamic.adapter.DynamicItemAdapter;
@@ -27,6 +28,7 @@ import com.wyt.searchbox.custom.IOnSearchClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -34,6 +36,9 @@ import butterknife.OnClick;
  * Created by donglinghao on 2016-01-28.
  */
 public class DynamicFragment extends BaseFragment implements IOnSearchClickListener {
+
+    @BindView(R.id.status_bar)
+    public View statusBar;
     /**
      * View
      */
@@ -74,6 +79,8 @@ public class DynamicFragment extends BaseFragment implements IOnSearchClickListe
         ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),dynamicView,"",false,false,R.mipmap.icon_home,true,R.menu.menu_main);
         //初始化页面绑定
         ButterKnife.bind(this,dynamicView);
+        //将View 高度设置为状态栏高度替代状态栏
+        ViewHeightUtils.setViewHeight(statusBar,ViewHeightUtils.getStatusBarHeight((AppCompatActivity) getActivity()));
     }
 
     @Override

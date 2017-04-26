@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -67,10 +69,11 @@ public class MainActivity extends BaseActivity {
             }
         }, 3000);*/
         ButterKnife.bind(this);
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         //设置切换页数量
         mViewPager.setOffscreenPageLimit(4);
         mFragmentList = new ArrayList<Fragment>();
-
         mTabHost.setup(MainActivity.this,this.getSupportFragmentManager(), android.R.id.tabcontent);
         mTabHost.getTabWidget().setDividerDrawable(null);
         for (int i = 0;i < mFragment.length;i++){

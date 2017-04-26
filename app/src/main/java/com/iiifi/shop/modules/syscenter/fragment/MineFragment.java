@@ -39,6 +39,7 @@ public class MineFragment extends BaseFragment {
         build();
         return mRootView;
     }
+
     @Override
     public void initView() {
         ButterKnife.bind(this,mRootView);
