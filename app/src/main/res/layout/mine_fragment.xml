@@ -72,10 +72,12 @@
     </android.support.design.widget.AppBarLayout>
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/photo"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:src="@mipmap/photo2"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/background_color"
         app:layout_anchor="@id/appBar"
-        app:layout_anchorGravity="bottom|center"
+        app:layout_anchorGravity="center|center"
         />
 </android.support.design.widget.CoordinatorLayout>
