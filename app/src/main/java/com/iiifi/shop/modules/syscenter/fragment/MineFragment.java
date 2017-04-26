@@ -43,7 +43,7 @@ public class MineFragment extends BaseFragment {
     @Override
     public void initView() {
         ButterKnife.bind(this,mRootView);
-        ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),mRootView,"",true,true,R.mipmap.icon_setting,true,R.menu.menu_mine);
+        //ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),mRootView,"",true,true,R.mipmap.icon_setting,true,R.menu.menu_mine);
     }
 
     @Override
