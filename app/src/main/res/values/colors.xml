@@ -10,6 +10,7 @@
 
     <!-- 不可点击字体颜色 -->
     <color name="text_color_gray">#e6e9ed</color>
+    <color name="text_color_sel">#187fc3</color>
     <color name="background_color">#ffffff</color>
     <color name="titleColor">#777777</color>
     <color name="titleColorSelected">#187fc3</color>
