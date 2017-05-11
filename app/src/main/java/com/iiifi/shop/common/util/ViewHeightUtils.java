@@ -1,6 +1,7 @@
 package com.iiifi.shop.common.util;
 
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -18,6 +19,7 @@ public class ViewHeightUtils {
             //根据资源ID获取响应的尺寸值
             statusBarHeight = activity.getResources().getDimensionPixelSize(resourceId);
         }
+        Log.i("dddd", "getStatusBarHeight: "+statusBarHeight);
         return statusBarHeight;
     }
 

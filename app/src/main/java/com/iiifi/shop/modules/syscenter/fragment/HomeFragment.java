@@ -39,9 +39,6 @@ public class HomeFragment extends BaseFragment implements  IOnSearchClickListene
     @BindView(R.id.banner)
     public Banner banner;
 
-/*    @BindView(R.id.status_bar)
-    public View statusBar;*/
-
     private boolean isUpdate=true;
     /**
      * View
@@ -82,11 +79,6 @@ public class HomeFragment extends BaseFragment implements  IOnSearchClickListene
     public void initView() {
         ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),homeView,"",true,true,R.mipmap.icon_home,true,R.menu.menu_main);
         ButterKnife.bind(this,homeView);
-       /* if(isUpdate){
-            //将View 高度设置为状态栏高度替代状态栏
-            ViewHeightUtils.setViewHeight(statusBar,ViewHeightUtils.getStatusBarHeight((AppCompatActivity) getActivity()));
-            isUpdate=false;
-        }*/
         init();
         //设置banner样式
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);

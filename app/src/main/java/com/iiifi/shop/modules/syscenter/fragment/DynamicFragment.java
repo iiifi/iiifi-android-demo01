@@ -37,9 +37,6 @@ import butterknife.OnClick;
  */
 public class DynamicFragment extends BaseFragment implements IOnSearchClickListener {
 
-   /* @BindView(R.id.status_bar)
-    public View statusBar;
-*/
     private boolean isUpdate=true;
     /**
      * View
@@ -81,11 +78,6 @@ public class DynamicFragment extends BaseFragment implements IOnSearchClickListe
         ToolBarUtil.buildToolBar((AppCompatActivity)getActivity(),dynamicView,"",false,false,R.mipmap.icon_home,true,R.menu.menu_main);
         //初始化页面绑定
         ButterKnife.bind(this,dynamicView);
-      /*  if(isUpdate){
-            //将View 高度设置为状态栏高度替代状态栏
-            ViewHeightUtils.setViewHeight(statusBar,ViewHeightUtils.getStatusBarHeight((AppCompatActivity) getActivity()));
-            isUpdate=false;
-        }*/
     }
 
     @Override
