@@ -59,13 +59,13 @@ public class DynamicFragment extends BaseFragment implements IOnSearchClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (dynamicView == null){
             dynamicView = inflater.inflate(R.layout.dynamic_fragment,container,false);
+            //编译页面
+            build();
         }
         ViewGroup parent = (ViewGroup) dynamicView.getParent();
         if (parent != null){
             parent.removeView(dynamicView);
         }
-        //编译页面
-        build();
         return dynamicView;
     }
     @Override

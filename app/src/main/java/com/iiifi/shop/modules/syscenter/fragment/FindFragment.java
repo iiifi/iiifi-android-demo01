@@ -36,12 +36,12 @@ public class FindFragment extends BaseFragment {
         if (mRootView == null){
             Log.e("666","FindFragment");
             mRootView = inflater.inflate(R.layout.find_fragment,container,false);
+            build();
         }
         ViewGroup parent = (ViewGroup) mRootView.getParent();
         if (parent != null){
             parent.removeView(mRootView);
         }
-        build();
         return mRootView;
     }
 

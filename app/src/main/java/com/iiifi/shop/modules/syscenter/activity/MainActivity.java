@@ -69,9 +69,9 @@ public class MainActivity extends BaseActivity {
             }
         }, 3000);*/
         ButterKnife.bind(this);
-        Window window = getWindow();
+  /*      Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);*/
         //设置切换页数量
         mViewPager.setOffscreenPageLimit(4);
         mFragmentList = new ArrayList<Fragment>();

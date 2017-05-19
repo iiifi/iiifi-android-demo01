@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+
 import com.iiifi.shop.activity.R;
 import com.iiifi.shop.common.base.fragment.BaseFragment;
 import com.iiifi.shop.common.util.ToolBarUtil;
@@ -31,12 +33,13 @@ public class MineFragment extends BaseFragment {
         if (mRootView == null){
             Log.e("666","MineFragment");
             mRootView = inflater.inflate(R.layout.mine_fragment,container,false);
+            mRootView.setFitsSystemWindows(true);
+            build();
         }
         ViewGroup parent = (ViewGroup) mRootView.getParent();
         if (parent != null){
             parent.removeView(mRootView);
         }
-        build();
         return mRootView;
     }
 
